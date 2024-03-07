@@ -1,0 +1,3 @@
+{
+  "extends": "@muse/typescript-config/base.json"
+}
