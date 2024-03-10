@@ -15,6 +15,7 @@
     "@muse/ui": "workspace:^",
     "@prisma/client": "^5.10.2",
     "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
     "geist": "^1.2.2",
     "next": "14.1.2",
     "next-auth": "5.0.0-beta.15",
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
+    "@types/bcryptjs": "^2.4.6",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -36,5 +38,8 @@
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
+  },
+  "browser": {
+    "crypto": false
   }
 }

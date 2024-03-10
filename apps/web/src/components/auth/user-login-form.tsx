@@ -1,5 +1,6 @@
 "use client";
 
+import { login } from "@/actions/login";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Button,
@@ -13,6 +14,7 @@ import {
 } from "@muse/ui";
 import * as Icons from "@muse/ui/icons";
 import Link from "next/link";
+import { startTransition } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
@@ -31,6 +33,9 @@ export default function UserLoginForm(): JSX.Element {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
+    startTransition(() => {
+      login(values.email, values.password);
+    });
   }
   return (
     <div className="w-full">
