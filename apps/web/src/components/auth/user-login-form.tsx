@@ -1,5 +1,6 @@
 "use client";
 
+import { login } from "@/actions/login";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Button,
@@ -13,6 +14,8 @@ import {
 } from "@muse/ui";
 import * as Icons from "@muse/ui/icons";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import { startTransition } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
@@ -20,7 +23,14 @@ const formSchema = z.object({
   email: z.string().email(),
   password: z.string().min(8),
 });
+
 export default function UserLoginForm(): JSX.Element {
+  const serachParams = useSearchParams();
+  const urlError =
+    serachParams.get("error") === "OAuthAccountNotLinked"
+      ? "Email already in use with different provider"
+      : "";
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -31,6 +41,9 @@ export default function UserLoginForm(): JSX.Element {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
+    startTransition(() => {
+      login(values.email, values.password);
+    });
   }
   return (
     <div className="w-full">
@@ -76,13 +89,12 @@ export default function UserLoginForm(): JSX.Element {
                 </FormItem>
               )}
             />
-            {/* <button
-              className="text-md bg-indigo hover:bg-indigoLight flex w-full items-center justify-center rounded py-2 transition-colors duration-150 ease-in-out"
-              type="submit"
-            >
-              Continue
-              <Icons.ChevronRight className="ml-1 h-4 w-4" />
-            </button> */}
+            {urlError && (
+              <FormMessage className="flex items-center justify-center">
+                <Icons.AlertTriangle className="mr-1 h-4 w-4" />
+                {urlError}
+              </FormMessage>
+            )}
             <Button type="submit" className="text-md w-full rounded-md">
               Continue
               <Icons.ChevronRight className="ml-1 h-4 w-4" />
