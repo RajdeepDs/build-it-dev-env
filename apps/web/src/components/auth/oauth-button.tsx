@@ -5,7 +5,12 @@ import { Button } from "@muse/ui";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
 
+// import { useSearchParams } from "next/navigation";
+
 export function OauthButton({ type }: { type: string }): JSX.Element {
+  // const searchParams = useSearchParams();
+  // const callbackUrl = searchParams.get("callbackUrl");
+
   const onClick = (provider: "github" | "google") => {
     signIn(provider, { callbackUrl: DEFAULT_LOGIN_REDIRECT });
   };
