@@ -40,7 +40,6 @@ export default function UserLoginForm(): JSX.Element {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
     startTransition(() => {
       login(values.email, values.password);
     });
@@ -95,7 +94,11 @@ export default function UserLoginForm(): JSX.Element {
                 {urlError}
               </FormMessage>
             )}
-            <Button type="submit" className="text-md w-full rounded-md">
+            <Button
+              type="submit"
+              className="text-md w-full rounded-md"
+              variant="default"
+            >
               Continue
               <Icons.ChevronRight className="ml-1 h-4 w-4" />
             </Button>

@@ -101,13 +101,11 @@ export default function UserAuthForm(): JSX.Element {
                 </FormItem>
               )}
             />
-            {/* <button
-              className="text-md bg-indigo hover:bg-indigoLight w-full rounded py-2 transition-colors duration-150 ease-in-out"
+            <Button
               type="submit"
+              className="text-md w-full rounded-md"
+              variant="default"
             >
-              Create account
-            </button> */}
-            <Button type="submit" className="text-md w-full rounded-md">
               Create account
             </Button>
           </form>
