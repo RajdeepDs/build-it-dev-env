@@ -10,6 +10,8 @@ export const register = async (
   email: string,
   password: string,
 ) => {
+  // TODO: Add server side validation
+
   const hashedPassword = await bcrypt.hash(password, 10);
 
   const existingUser = await prisma.user.findUnique({

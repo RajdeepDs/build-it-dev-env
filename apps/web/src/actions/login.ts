@@ -8,6 +8,8 @@ import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
 import { AuthError } from "next-auth";
 
 export const login = async (email: string, password: string) => {
+  // TODO: Add server side validation
+
   const existingUser = await getUserByEmail(email);
   if (!existingUser || !existingUser.email || !existingUser.password) {
     return { error: "Email does not exists" };
