@@ -15,16 +15,19 @@ import {
 import * as Icons from "@muse/ui/icons";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { startTransition } from "react";
+import { startTransition, useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
 const formSchema = z.object({
   email: z.string().email(),
   password: z.string().min(8),
+  code: z.optional(z.string()),
 });
 
 export default function UserLoginForm(): JSX.Element {
+  const [showTwoFactor, setShowTwoFactor] = useState(false);
+
   const serachParams = useSearchParams();
   const urlError =
     serachParams.get("error") === "OAuthAccountNotLinked"
@@ -41,13 +44,22 @@ export default function UserLoginForm(): JSX.Element {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     startTransition(() => {
-      login(values.email, values.password).then((data) => {
-        if (data?.error) {
-          console.log(data.error);
-        } else {
-          console.log("Confirmation email sent!");
-        }
-      });
+      login(values.email, values.password, values.code ?? "")
+        .then((data) => {
+          if (data?.error) {
+            form.reset();
+            console.log(data.error);
+          }
+          if (data?.success) {
+            form.reset();
+            console.log(data.success);
+          }
+
+          if (data?.twoFactor) {
+            setShowTwoFactor(true);
+          }
+        })
+        .catch(() => console.error("Something went wrong"));
     });
   }
   return (
@@ -55,45 +67,68 @@ export default function UserLoginForm(): JSX.Element {
       <div className="w-full">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Email</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="Enter your email"
-                      {...field}
-                      autoComplete="off"
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="password"
-              render={({ field }) => (
-                <FormItem>
-                  <div className="flex items-center justify-between">
-                    <FormLabel>Password</FormLabel>
-                    <Link href="/auth/reset" className="text-sm">
-                      Forgot password?
-                    </Link>
-                  </div>
-                  <FormControl>
-                    <Input
-                      placeholder="Enter your password"
-                      {...field}
-                      type="password"
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+            {showTwoFactor && (
+              <FormField
+                control={form.control}
+                name="code"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Two Factor Code</FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="123456"
+                        {...field}
+                        autoComplete="off"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            )}
+            {!showTwoFactor && (
+              <>
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Email</FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="Enter your email"
+                          {...field}
+                          autoComplete="off"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="password"
+                  render={({ field }) => (
+                    <FormItem>
+                      <div className="flex items-center justify-between">
+                        <FormLabel>Password</FormLabel>
+                        <Link href="/auth/reset" className="text-sm">
+                          Forgot password?
+                        </Link>
+                      </div>
+                      <FormControl>
+                        <Input
+                          placeholder="Enter your password"
+                          {...field}
+                          type="password"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </>
+            )}
             {urlError && (
               <FormMessage className="flex items-center justify-center">
                 <Icons.AlertTriangle className="mr-1 h-4 w-4" />
