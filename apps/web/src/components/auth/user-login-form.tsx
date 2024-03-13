@@ -41,7 +41,13 @@ export default function UserLoginForm(): JSX.Element {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     startTransition(() => {
-      login(values.email, values.password);
+      login(values.email, values.password).then((data) => {
+        if (data?.error) {
+          console.log(data.error);
+        } else {
+          console.log("Confirmation email sent!");
+        }
+      });
     });
   }
   return (

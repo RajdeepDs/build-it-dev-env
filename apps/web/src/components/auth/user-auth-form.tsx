@@ -37,7 +37,7 @@ export default function UserAuthForm(): JSX.Element {
     startTransition(() => {
       register(values.name, values.email, values.password).then((data) => {
         if (data === true) {
-          console.log("User registered successfully!");
+          console.log("Confirmation email sent!");
           route.push("/login");
         } else {
           console.log(data);

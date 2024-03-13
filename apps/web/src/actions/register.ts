@@ -1,6 +1,8 @@
 "use server";
 
+import { sendVerificationEmail } from "@/lib/mail";
 import prisma from "@/lib/prisma";
+import { generateVerificationToken } from "@/lib/tokens";
 import bcrypt from "bcrypt";
 
 export const register = async (
@@ -27,7 +29,8 @@ export const register = async (
     },
   });
 
-  //   TODO: Send verification token to user's email
+  const verificationToken = await generateVerificationToken(email);
+  await sendVerificationEmail(verificationToken.email, verificationToken.token);
 
   return true;
 };
