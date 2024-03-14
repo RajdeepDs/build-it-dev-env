@@ -1,6 +1,7 @@
 "use client";
 
 import { reset } from "@/actions/reset";
+import { ResetFormSchema } from "@/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Button,
@@ -13,28 +14,30 @@ import {
   Input,
 } from "@muse/ui";
 import * as Icons from "@muse/ui/icons";
+import { useRouter } from "next/navigation";
 import { startTransition } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import * as z from "zod";
 
-const formSchema = z.object({
-  email: z.string().email(),
-});
-
 export default function ResetForm(): JSX.Element {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const route = useRouter();
+  const form = useForm<z.infer<typeof ResetFormSchema>>({
+    resolver: zodResolver(ResetFormSchema),
     defaultValues: {
       email: "",
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-
+  function onSubmit(values: z.infer<typeof ResetFormSchema>) {
     startTransition(() => {
       reset(values).then((result) => {
-        console.log(result);
+        if (result.success) {
+          toast.success(result.success);
+          route.push("/login");
+        } else {
+          toast.error(result.error);
+        }
       });
     });
   }
@@ -63,7 +66,7 @@ export default function ResetForm(): JSX.Element {
             <Button
               type="submit"
               className="text-md w-full rounded-md"
-              variant="default"
+              variant="form"
             >
               Send Reset Email
               <Icons.ChevronRight className="ml-1 h-4 w-4" />

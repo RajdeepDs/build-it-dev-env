@@ -9,9 +9,9 @@ export default function ResetPasswordPage(): JSX.Element {
       <div className="flex flex-col gap-y-6 text-start">
         <Image src="/Logo.svg" width={35} height={35} alt="Muse Logo" />
         <div className="flex flex-col gap-1">
-          <h1 className="text-2xl font-semibold">Muse</h1>
+          <h1 className="text-2xl font-semibold">Forgot your password</h1>
           <p className="text-grey/70">
-            Forgot your password?{" "}
+            Return to login?{" "}
             <Link
               href="/login"
               className="font-semibold text-blue-500 hover:underline"

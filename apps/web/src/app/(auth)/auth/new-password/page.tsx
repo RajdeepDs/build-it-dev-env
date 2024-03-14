@@ -1,5 +1,4 @@
 import NewPasswordForm from "@/components/auth/new-password-form";
-import ResetForm from "@/components/auth/reset-form";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
@@ -10,9 +9,9 @@ export default function NewPasswordPage() {
       <div className="flex flex-col gap-y-6 text-start">
         <Image src="/Logo.svg" width={35} height={35} alt="Muse Logo" />
         <div className="flex flex-col gap-1">
-          <h1 className="text-2xl font-semibold">Muse</h1>
+          <h1 className="text-2xl font-semibold">Enter a new password</h1>
           <p className="text-grey/70">
-            Enter a new password?{" "}
+            Return to login?{" "}
             <Link
               href="/login"
               className="font-semibold text-blue-500 hover:underline"

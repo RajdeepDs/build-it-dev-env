@@ -1,7 +1,7 @@
 "use client";
 
 import { newPassword } from "@/actions/new-password";
-import { reset } from "@/actions/reset";
+import { NewPasswordFormSchema } from "@/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Button,
@@ -14,32 +14,34 @@ import {
   Input,
 } from "@muse/ui";
 import * as Icons from "@muse/ui/icons";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { startTransition } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import * as z from "zod";
 
-const formSchema = z.object({
-  password: z.string().min(8),
-});
-
 export default function NewPasswordForm(): JSX.Element {
+  const route = useRouter();
   const searchParam = useSearchParams();
   const token = searchParam.get("token");
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<z.infer<typeof NewPasswordFormSchema>>({
+    resolver: zodResolver(NewPasswordFormSchema),
     defaultValues: {
       password: "",
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-
+  function onSubmit(values: z.infer<typeof NewPasswordFormSchema>) {
     startTransition(() => {
       newPassword(values, token).then((result) => {
-        console.log(result);
+        if (result.error) {
+          toast.error(result.error);
+        }
+        if (result.success) {
+          toast.success("Password updated successfully!");
+          route.push("/login");
+        }
       });
     });
   }
@@ -69,7 +71,7 @@ export default function NewPasswordForm(): JSX.Element {
             <Button
               type="submit"
               className="text-md w-full rounded-md"
-              variant="default"
+              variant="form"
             >
               Reset Password
               <Icons.ChevronRight className="ml-1 h-4 w-4" />

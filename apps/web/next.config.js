@@ -1,3 +1,12 @@
 /** @type {import('next').NextConfig} */
 
-module.exports = {};
+module.exports = {
+  async rewrites() {
+    return [
+      {
+        source: "/",
+        destination: "/homepage",
+      },
+    ];
+  },
+};
