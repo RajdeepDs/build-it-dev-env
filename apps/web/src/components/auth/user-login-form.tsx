@@ -1,66 +1,76 @@
 "use client";
 
 import { login } from "@/actions/login";
+import { LoginFormSchema } from "@/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Button,
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
   Input,
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
 } from "@muse/ui";
 import * as Icons from "@muse/ui/icons";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { startTransition, useState } from "react";
+import { startTransition, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import * as z from "zod";
 
-const formSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(8),
-  code: z.optional(z.string()),
-});
-
 export default function UserLoginForm(): JSX.Element {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [showTwoFactor, setShowTwoFactor] = useState(false);
 
   const serachParams = useSearchParams();
+
   const urlError =
     serachParams.get("error") === "OAuthAccountNotLinked"
       ? "Email already in use with different provider"
       : "";
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  useEffect(() => {
+    if (urlError) {
+      toast.error(urlError);
+    }
+  }, [urlError]);
+
+  const form = useForm<z.infer<typeof LoginFormSchema>>({
+    resolver: zodResolver(LoginFormSchema),
     defaultValues: {
       email: "",
       password: "",
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  function onSubmit(values: z.infer<typeof LoginFormSchema>) {
+    setIsLoading(true);
     startTransition(() => {
-      login(values.email, values.password, values.code ?? "")
+      login(values.email, values.password, values.pin ?? "")
         .then((data) => {
           if (data?.error) {
             form.reset();
-            console.log(data.error);
+            toast.error(data.error);
           }
           if (data?.success) {
             form.reset();
-            console.log(data.success);
+            toast.success(data.success);
           }
 
           if (data?.twoFactor) {
             setShowTwoFactor(true);
           }
         })
-        .catch(() => console.error("Something went wrong"));
+        .catch(() => toast.error("Something went wrong!"));
     });
+    setIsLoading(false);
   }
   return (
     <div className="w-full">
@@ -70,17 +80,26 @@ export default function UserLoginForm(): JSX.Element {
             {showTwoFactor && (
               <FormField
                 control={form.control}
-                name="code"
+                name="pin"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Two Factor Code</FormLabel>
                     <FormControl>
-                      <Input
-                        placeholder="123456"
+                      <InputOTP
+                        maxLength={6}
+                        render={({ slots }) => (
+                          <InputOTPGroup>
+                            {slots.map((slot, index) => (
+                              <InputOTPSlot key={index} {...slot} />
+                            ))}{" "}
+                          </InputOTPGroup>
+                        )}
                         {...field}
-                        autoComplete="off"
                       />
                     </FormControl>
+                    <FormDescription>
+                      Please enter the two factor code sent to your email.
+                    </FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -112,7 +131,10 @@ export default function UserLoginForm(): JSX.Element {
                     <FormItem>
                       <div className="flex items-center justify-between">
                         <FormLabel>Password</FormLabel>
-                        <Link href="/auth/reset" className="text-sm">
+                        <Link
+                          href="/auth/reset"
+                          className="text-grey/50 hover:text-grey text-sm underline-offset-1 transition-all duration-150 ease-in hover:underline"
+                        >
                           Forgot password?
                         </Link>
                       </div>
@@ -129,17 +151,15 @@ export default function UserLoginForm(): JSX.Element {
                 />
               </>
             )}
-            {urlError && (
-              <FormMessage className="flex items-center justify-center">
-                <Icons.AlertTriangle className="mr-1 h-4 w-4" />
-                {urlError}
-              </FormMessage>
-            )}
             <Button
               type="submit"
               className="text-md w-full rounded-md"
-              variant="default"
+              variant="form"
+              disabled={isLoading}
             >
+              {isLoading && (
+                <Icons.Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              )}
               Continue
               <Icons.ChevronRight className="ml-1 h-4 w-4" />
             </Button>

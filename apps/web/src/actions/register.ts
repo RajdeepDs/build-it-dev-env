@@ -3,6 +3,7 @@
 import { sendVerificationEmail } from "@/lib/mail";
 import prisma from "@/lib/prisma";
 import { generateVerificationToken } from "@/lib/tokens";
+import { RegisterFormSchema } from "@/schemas";
 import bcrypt from "bcrypt";
 
 export const register = async (
@@ -10,7 +11,15 @@ export const register = async (
   email: string,
   password: string,
 ) => {
-  // TODO: Add server side validation
+  const validatedFields = RegisterFormSchema.parse({
+    name,
+    email,
+    password,
+  });
+
+  if (!validatedFields) {
+    return { error: "Invalid fields!" };
+  }
 
   const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -21,7 +30,7 @@ export const register = async (
   });
 
   if (existingUser) {
-    return "User already exists";
+    return { error: "User already exists!" };
   }
   await prisma.user.create({
     data: {
@@ -32,6 +41,7 @@ export const register = async (
   });
 
   const verificationToken = await generateVerificationToken(email);
+
   await sendVerificationEmail(verificationToken.email, verificationToken.token);
 
   return true;

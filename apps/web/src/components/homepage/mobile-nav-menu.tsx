@@ -1,12 +1,18 @@
 "use client";
+
 import { Button } from "@muse/ui";
 import * as Icons from "@muse/ui/icons";
 import { AnimatePresence, motion } from "framer-motion";
+import { Session } from "next-auth/types";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function MobileNavMenu(): JSX.Element {
+export default function MobileNavMenu({
+  session,
+}: {
+  session: Session | null;
+}): JSX.Element {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -61,14 +67,22 @@ export default function MobileNavMenu(): JSX.Element {
             </div>
             <div className="container absolute bottom-5 flex w-full items-center justify-between px-4">
               <div className="flex gap-x-2">
-                <Link href="/register">
-                  <Button size="sm">Sign Up</Button>
-                </Link>
-                <Link href="/login">
-                  <Button variant="secondary" size="sm">
-                    Log in
-                  </Button>
-                </Link>
+                {session ? (
+                  <Link href="/dashboard">
+                    <Button size="sm">Dashboard</Button>
+                  </Link>
+                ) : (
+                  <>
+                    <Link href="/register">
+                      <Button size="sm">Sign Up</Button>
+                    </Link>
+                    <Link href="/login">
+                      <Button variant="secondary" size="sm">
+                        Log in
+                      </Button>
+                    </Link>
+                  </>
+                )}
               </div>
               <div className="flex items-center gap-4">
                 <Link href="https://twitter.com/Rajdeep__ds">

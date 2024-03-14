@@ -10,14 +10,19 @@ import {
   generateVerificationToken,
 } from "@/lib/tokens";
 import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
+import { LoginFormSchema } from "@/schemas";
 import { AuthError } from "next-auth";
 
-export const login = async (email: string, password: string, code: string) => {
-  // TODO: Add server side validation
+export const login = async (email: string, password: string, pin: string) => {
+  const validatedFields = LoginFormSchema.safeParse({ email, password, pin });
+
+  if (!validatedFields) {
+    return { error: "Invalid fields!" };
+  }
 
   const existingUser = await getUserByEmail(email);
   if (!existingUser || !existingUser.email || !existingUser.password) {
-    return { error: "Email does not exists" };
+    return { error: "Email does not exists!" };
   }
 
   if (!existingUser.emailVerified) {
@@ -34,19 +39,19 @@ export const login = async (email: string, password: string, code: string) => {
   }
 
   if (existingUser.isTwoFactorEnabled && existingUser.email) {
-    if (code) {
+    if (pin) {
       const twoFactorToken = await getTwoFactorTokenByEmail(existingUser.email);
       if (!twoFactorToken) {
-        return { error: "Invalid code!" };
+        return { error: "Invalid pin!" };
       }
-      if (twoFactorToken.token !== code) {
-        return { error: "Invalid code!" };
+      if (twoFactorToken.token !== pin) {
+        return { error: "Invalid pin!" };
       }
 
       const hasExpired = new Date(twoFactorToken.expires) < new Date();
 
       if (hasExpired) {
-        return { error: "Code has expired!" };
+        return { error: "Pin has expired!" };
       }
 
       await prisma?.twoFactorToken.delete({

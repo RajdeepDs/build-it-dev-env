@@ -2,6 +2,7 @@ import { auth, signOut } from "@/auth";
 
 export default async function DashboardPage(): Promise<JSX.Element> {
   const session = await auth();
+
   return (
     <main>
       <h1 className="">I am Muse&apos;s Dashboard.</h1>

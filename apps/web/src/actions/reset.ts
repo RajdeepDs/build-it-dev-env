@@ -30,5 +30,5 @@ export const reset = async (values: z.infer<typeof formSchema>) => {
     passwordResetToken.token,
   );
 
-  return { success: "Email sent" };
+  return { success: "Email sent! Check you mail inbox." };
 };

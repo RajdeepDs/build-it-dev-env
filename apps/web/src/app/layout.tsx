@@ -3,6 +3,7 @@ import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
 import "./globals.css";
+import { Toaster } from "@muse/ui";
 
 export const metadata: Metadata = {
   title: "Muse",
@@ -16,7 +17,10 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <body className="bg-bg text-white">{children}</body>
+      <body className="bg-bg text-white">
+        {children}
+        <Toaster richColors />
+      </body>
     </html>
   );
 }

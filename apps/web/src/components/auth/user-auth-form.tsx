@@ -1,6 +1,7 @@
 "use client";
 
 import { register } from "@/actions/register";
+import { RegisterFormSchema } from "@/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Button,
@@ -12,20 +13,20 @@ import {
   FormMessage,
   Input,
 } from "@muse/ui";
+import * as Icons from "@muse/ui/icons";
 import { useRouter } from "next/navigation";
-import { startTransition } from "react";
+import React, { startTransition } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import * as z from "zod";
 
-const formSchema = z.object({
-  name: z.string().min(3),
-  email: z.string().email(),
-  password: z.string().min(8),
-});
 export default function UserAuthForm(): JSX.Element {
+  const [isLoading, setIsLoading] = React.useState<boolean>(false);
+
   const route = useRouter();
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+
+  const form = useForm<z.infer<typeof RegisterFormSchema>>({
+    resolver: zodResolver(RegisterFormSchema),
     defaultValues: {
       name: "",
       email: "",
@@ -33,14 +34,15 @@ export default function UserAuthForm(): JSX.Element {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  function onSubmit(values: z.infer<typeof RegisterFormSchema>) {
+    setIsLoading(true);
     startTransition(() => {
       register(values.name, values.email, values.password).then((data) => {
         if (data === true) {
-          console.log("Confirmation email sent!");
+          toast.success("Confirmation email sent!");
           route.push("/login");
         } else {
-          console.log(data);
+          toast.error(data.error);
         }
       });
     });
@@ -104,8 +106,12 @@ export default function UserAuthForm(): JSX.Element {
             <Button
               type="submit"
               className="text-md w-full rounded-md"
-              variant="default"
+              variant="form"
+              disabled={isLoading}
             >
+              {isLoading && (
+                <Icons.Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              )}
               Create account
             </Button>
           </form>
