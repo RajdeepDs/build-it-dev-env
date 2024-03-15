@@ -34,7 +34,7 @@ export default function NewPasswordForm(): JSX.Element {
 
   function onSubmit(values: z.infer<typeof NewPasswordFormSchema>) {
     startTransition(() => {
-      newPassword(values, token).then((result) => {
+      newPassword(values.password, token).then((result) => {
         if (result.error) {
           toast.error(result.error);
         }
