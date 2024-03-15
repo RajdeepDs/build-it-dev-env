@@ -5,6 +5,7 @@ import { getTwoFactorConfirmationByUserId } from "@/data/two-factor-confirmation
 import { getTwoFactorTokenByEmail } from "@/data/two-factor-token";
 import { getUserByEmail } from "@/data/user";
 import { sendTwoFactorEmail, sendVerificationEmail } from "@/lib/mail";
+import prisma from "@/lib/prisma";
 import {
   generateTwoFactorToken,
   generateVerificationToken,
@@ -54,7 +55,7 @@ export const login = async (email: string, password: string, pin: string) => {
         return { error: "Pin has expired!" };
       }
 
-      await prisma?.twoFactorToken.delete({
+      await prisma.twoFactorToken.delete({
         where: {
           id: twoFactorToken.id,
         },
@@ -64,14 +65,14 @@ export const login = async (email: string, password: string, pin: string) => {
         existingUser.id,
       );
       if (existingConfirmation) {
-        await prisma?.twoFactorConfirmation.delete({
+        await prisma.twoFactorConfirmation.delete({
           where: {
             id: existingConfirmation.id,
           },
         });
       }
 
-      await prisma?.twoFactorConfirmation.create({
+      await prisma.twoFactorConfirmation.create({
         data: {
           userId: existingUser.id,
         },
