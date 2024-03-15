@@ -57,7 +57,9 @@ export default function UserLoginForm(): JSX.Element {
         .then((data) => {
           if (data?.error) {
             form.reset();
-            toast.error(data.error);
+            console.log(data.error);
+
+            toast.error(String(data.error));
           }
           if (data?.success) {
             form.reset();
@@ -68,7 +70,10 @@ export default function UserLoginForm(): JSX.Element {
             setShowTwoFactor(true);
           }
         })
-        .catch(() => toast.error("Something went wrong!"));
+        .catch((error) => {
+          console.log(error);
+          toast.error("Something went wrong!");
+        });
     });
     setIsLoading(false);
   }

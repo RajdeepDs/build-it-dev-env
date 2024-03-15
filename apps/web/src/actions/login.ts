@@ -97,7 +97,7 @@ export const login = async (email: string, password: string, pin: string) => {
         case "CredentialsSignin":
           return { error: "Invalid credentials" };
         default:
-          return { error: "Something went wrong!" };
+          return { error };
       }
     }
     throw error;
