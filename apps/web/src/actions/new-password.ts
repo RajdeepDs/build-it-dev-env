@@ -60,8 +60,7 @@ export const newPassword = async (
         password: hashedPassword,
       },
     });
-  } catch (e) {
-    console.log(e);
+  } catch {
     return {
       error: "Failed to update password!",
     };

@@ -12,6 +12,7 @@ import {
 } from "@/lib/tokens";
 import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
 import { LoginFormSchema } from "@/schemas";
+import bcrypt from "bcryptjs";
 import { AuthError } from "next-auth";
 
 export const login = async (email: string, password: string, pin: string) => {
@@ -40,6 +41,15 @@ export const login = async (email: string, password: string, pin: string) => {
   }
 
   if (existingUser.isTwoFactorEnabled && existingUser.email) {
+    const isPasswordValid = await bcrypt.compare(
+      password,
+      existingUser.password,
+    );
+
+    if (!isPasswordValid) {
+      return { error: "Invalid credentials!" };
+    }
+
     if (pin) {
       const twoFactorToken = await getTwoFactorTokenByEmail(existingUser.email);
       if (!twoFactorToken) {
@@ -98,7 +108,7 @@ export const login = async (email: string, password: string, pin: string) => {
         case "CredentialsSignin":
           return { error: "Invalid credentials" };
         default:
-          return { error };
+          return { error: "Something went wrong!" };
       }
     }
     throw error;
