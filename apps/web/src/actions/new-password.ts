@@ -5,20 +5,25 @@ import { getUserByEmail } from "@/data/user";
 import prisma from "@/lib/prisma";
 import { NewPasswordFormSchema } from "@/schemas";
 import bcrypt from "bcryptjs";
+import { z } from "zod";
 
-export const newPassword = async (password: string, token?: string | null) => {
+export const newPassword = async (
+  values: z.infer<typeof NewPasswordFormSchema>,
+  token?: string | null,
+) => {
   if (!token) {
     return {
       error: "Missing Token!",
     };
   }
-  const validatedFields = NewPasswordFormSchema.safeParse(password);
-
+  const validatedFields = NewPasswordFormSchema.safeParse(values);
   if (!validatedFields.success) {
     return {
       error: "Invalid fields!",
     };
   }
+
+  const { password } = validatedFields.data;
 
   const existingToken = await getPasswordResetTokenbyToken(token);
 
