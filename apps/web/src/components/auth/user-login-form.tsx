@@ -19,13 +19,14 @@ import {
 } from "@muse/ui";
 import * as Icons from "@muse/ui/icons";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { startTransition, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import * as z from "zod";
 
 export default function UserLoginForm(): JSX.Element {
+  const route = useRouter();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [showTwoFactor, setShowTwoFactor] = useState(false);
 
@@ -58,6 +59,7 @@ export default function UserLoginForm(): JSX.Element {
           if (data?.error) {
             form.reset();
             toast.error(data.error);
+            route.refresh();
           }
           if (data?.success) {
             form.reset();
@@ -68,7 +70,9 @@ export default function UserLoginForm(): JSX.Element {
             setShowTwoFactor(true);
           }
         })
-        .catch(() => toast.error("Something went wrong!"));
+        .catch(() => {
+          toast.error("Something went wrong!");
+        });
     });
     setIsLoading(false);
   }

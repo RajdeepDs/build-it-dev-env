@@ -2,15 +2,13 @@
 
 import { getPasswordResetTokenbyToken } from "@/data/password-reset-token";
 import { getUserByEmail } from "@/data/user";
+import prisma from "@/lib/prisma";
+import { NewPasswordFormSchema } from "@/schemas";
 import bcrypt from "bcryptjs";
-import * as z from "zod";
-
-const formSchema = z.object({
-  password: z.string().min(8),
-});
+import { z } from "zod";
 
 export const newPassword = async (
-  values: z.infer<typeof formSchema>,
+  values: z.infer<typeof NewPasswordFormSchema>,
   token?: string | null,
 ) => {
   if (!token) {
@@ -18,8 +16,7 @@ export const newPassword = async (
       error: "Missing Token!",
     };
   }
-  const validatedFields = formSchema.safeParse(values);
-
+  const validatedFields = NewPasswordFormSchema.safeParse(values);
   if (!validatedFields.success) {
     return {
       error: "Invalid fields!",
@@ -54,15 +51,22 @@ export const newPassword = async (
 
   const hashedPassword = await bcrypt.hash(password, 10);
 
-  await prisma?.user.update({
-    where: {
-      id: existingUser.id,
-    },
-    data: {
-      password: hashedPassword,
-    },
-  });
-  await prisma?.passwordResetToken.delete({
+  try {
+    await prisma.user.update({
+      where: {
+        id: existingUser.id,
+      },
+      data: {
+        password: hashedPassword,
+      },
+    });
+  } catch {
+    return {
+      error: "Failed to update password!",
+    };
+  }
+
+  await prisma.passwordResetToken.delete({
     where: {
       id: existingToken.id,
     },

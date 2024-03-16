@@ -1,10 +1,10 @@
 import authConfig from "@/auth.config";
 import { getTwoFactorConfirmationByUserId } from "@/data/two-factor-confirmation";
 import { getUserById } from "@/data/user";
+import prisma from "@/lib/prisma";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { UserRole } from "@prisma/client";
 import NextAuth from "next-auth";
-import prisma from "./lib/prisma";
 
 export const {
   handlers: { GET, POST },
@@ -42,8 +42,6 @@ export const {
         const twoFactorConfirmation = await getTwoFactorConfirmationByUserId(
           existingUser.id,
         );
-
-        console.log({ twoFactorConfirmation });
 
         if (!twoFactorConfirmation) {
           return false;

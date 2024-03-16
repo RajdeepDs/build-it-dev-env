@@ -15,7 +15,7 @@ import {
 } from "@muse/ui";
 import * as Icons from "@muse/ui/icons";
 import { useRouter, useSearchParams } from "next/navigation";
-import { startTransition } from "react";
+import { startTransition, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import * as z from "zod";
@@ -25,6 +25,8 @@ export default function NewPasswordForm(): JSX.Element {
   const searchParam = useSearchParams();
   const token = searchParam.get("token");
 
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const form = useForm<z.infer<typeof NewPasswordFormSchema>>({
     resolver: zodResolver(NewPasswordFormSchema),
     defaultValues: {
@@ -33,6 +35,7 @@ export default function NewPasswordForm(): JSX.Element {
   });
 
   function onSubmit(values: z.infer<typeof NewPasswordFormSchema>) {
+    setIsLoading(true);
     startTransition(() => {
       newPassword(values, token).then((result) => {
         if (result.error) {
@@ -44,6 +47,7 @@ export default function NewPasswordForm(): JSX.Element {
         }
       });
     });
+    setIsLoading(false);
   }
   return (
     <div className="w-full">
@@ -72,7 +76,11 @@ export default function NewPasswordForm(): JSX.Element {
               type="submit"
               className="text-md w-full rounded-md"
               variant="form"
+              disabled={isLoading}
             >
+              {isLoading && (
+                <Icons.Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              )}
               Reset Password
               <Icons.ChevronRight className="ml-1 h-4 w-4" />
             </Button>
