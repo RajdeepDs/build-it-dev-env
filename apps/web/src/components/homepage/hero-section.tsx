@@ -1,4 +1,5 @@
 "use client";
+
 import { Button } from "@muse/ui";
 import * as Icons from "@muse/ui/icons";
 import { motion } from "framer-motion";
@@ -42,11 +43,11 @@ export default function HeroSection(): JSX.Element {
         </Button>
       </motion.div>
       <Image
-        src="/Editor-Mockup.webp"
+        src="/editor-mockup.webp"
         alt="Editor Mockup"
         sizes="100vw"
         style={{
-          width: "100%",
+          width: "90%",
           height: "auto",
         }}
         width={1240}

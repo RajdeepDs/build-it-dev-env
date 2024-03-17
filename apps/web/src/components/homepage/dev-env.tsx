@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function DevelopmentEnvironment(): JSX.Element {
   return (
@@ -15,7 +16,18 @@ export default function DevelopmentEnvironment(): JSX.Element {
         Muse: Your effortless Next.js development environment
       </motion.h1>
       <div className="container flex flex-col items-center">
-        <div className="bg-bg2 border-indigoLight mt-20 h-[286px] w-full rounded-lg border" />
+        <Image
+          src="/editor-dev.webp"
+          alt="Development Environment Mockup"
+          sizes="100vw"
+          style={{
+            width: "90%",
+            height: "auto",
+          }}
+          width={1240}
+          height={286}
+          className="border-indigoLight mt-28 rounded-lg border"
+        />
         <h2 className="mt-10 max-w-3xl text-center text-2xl md:text-3xl">
           Boost your Next.js development workflow with Muse&apos;s intuitive and
           feature-rich environment.
