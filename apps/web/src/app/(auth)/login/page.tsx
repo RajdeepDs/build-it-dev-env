@@ -2,6 +2,7 @@ import { OauthButton } from "@/components/auth/oauth-button";
 import UserLoginForm from "@/components/auth/user-login-form";
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
 
 export default function LoginPage(): JSX.Element {
   return (
@@ -21,7 +22,9 @@ export default function LoginPage(): JSX.Element {
           </p>
         </div>
       </div>
-      <UserLoginForm />
+      <Suspense>
+        <UserLoginForm />
+      </Suspense>
       <div className="my-4 flex w-full items-center">
         <div className="bg-grey/20 h-[1px] w-full" />
         <p className="text-grey/70 px-2 text-sm">OR</p>

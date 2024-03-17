@@ -1,5 +1,7 @@
 "use client";
 
+import { register } from "@/actions/register";
+import { RegisterFormSchema } from "@/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Button,
@@ -11,30 +13,62 @@ import {
   FormMessage,
   Input,
 } from "@muse/ui";
+import * as Icons from "@muse/ui/icons";
+import { useRouter } from "next/navigation";
+import React, { startTransition } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import * as z from "zod";
 
-const formSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(8),
-});
 export default function UserAuthForm(): JSX.Element {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const [isLoading, setIsLoading] = React.useState<boolean>(false);
+
+  const route = useRouter();
+
+  const form = useForm<z.infer<typeof RegisterFormSchema>>({
+    resolver: zodResolver(RegisterFormSchema),
     defaultValues: {
+      name: "",
       email: "",
       password: "",
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+  function onSubmit(values: z.infer<typeof RegisterFormSchema>) {
+    setIsLoading(true);
+    startTransition(() => {
+      register(values.name, values.email, values.password).then((data) => {
+        if (data === true) {
+          toast.success("Confirmation email sent!");
+          route.push("/login");
+        } else {
+          toast.error(data.error);
+        }
+      });
+    });
   }
   return (
     <div className="w-full">
       <div className="w-full">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Name</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="Enter your name"
+                      {...field}
+                      autoComplete="off"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
             <FormField
               control={form.control}
               name="email"
@@ -69,13 +103,15 @@ export default function UserAuthForm(): JSX.Element {
                 </FormItem>
               )}
             />
-            {/* <button
-              className="text-md bg-indigo hover:bg-indigoLight w-full rounded py-2 transition-colors duration-150 ease-in-out"
+            <Button
               type="submit"
+              className="text-md w-full rounded-md"
+              variant="form"
+              disabled={isLoading}
             >
-              Create account
-            </button> */}
-            <Button type="submit" className="text-md w-full rounded-md">
+              {isLoading && (
+                <Icons.Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              )}
               Create account
             </Button>
           </form>

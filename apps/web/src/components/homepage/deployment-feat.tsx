@@ -1,4 +1,5 @@
 "use client";
+
 import { motion } from "framer-motion";
 
 export default function DeploymentFeature(): JSX.Element {
@@ -27,7 +28,7 @@ export default function DeploymentFeature(): JSX.Element {
       <div className="container flex flex-col gap-5">
         <ul className="grid gap-5 md:grid-cols-6 xl:gap-0">
           <li className="col-span-2 col-start-2 flex w-fit">
-            <p className="text-grey/70 font-light">
+            <p className="text-grey/70 flex flex-col font-light">
               <span className="font-medium text-white">
                 One-click deployment:
               </span>{" "}
@@ -35,7 +36,7 @@ export default function DeploymentFeature(): JSX.Element {
             </p>
           </li>
           <li className="col-span-2 col-start-4 flex w-fit">
-            <p className="text-grey/70 font-light">
+            <p className="text-grey/70 flex flex-col font-light">
               <span className="font-medium text-white">
                 Custom domain support:
               </span>{" "}
@@ -45,7 +46,7 @@ export default function DeploymentFeature(): JSX.Element {
         </ul>
         <ul className="grid gap-5 md:grid-cols-6 xl:gap-0">
           <li className="col-span-2 col-start-2 flex w-fit">
-            <p className="text-grey/70 font-light">
+            <p className="text-grey/70 flex flex-col font-light">
               <span className="font-medium text-white">
                 Real-time deployment status:
               </span>{" "}
@@ -53,7 +54,7 @@ export default function DeploymentFeature(): JSX.Element {
             </p>
           </li>
           <li className="col-span-2 col-start-4 flex w-fit">
-            <p className="text-grey/70 font-light">
+            <p className="text-grey/70 flex flex-col font-light">
               <span className="font-medium text-white">
                 Environment management:
               </span>{" "}
