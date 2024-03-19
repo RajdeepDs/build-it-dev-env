@@ -18,7 +18,7 @@
 
 /* CSS variables */
 :root {
-  --header-height: 49px;
+  --header-height: 52px;
 }
 
 /* Header styles */
@@ -31,7 +31,7 @@
   padding-top: var(--header-height);
 }
 
-/* Hero section styles */
+/* Hero section styles
 .hero {
   background: radial-gradient(
     ellipse 50% 20% at 50% -10%,
@@ -40,7 +40,7 @@
   );
   margin-top: calc(-1 * var(--header-height));
   padding-top: var(--header-height);
-}
+} */
 
 /* Border gradient */
 .border-gradient {

@@ -8,7 +8,7 @@ import { NavTabs } from "./nav-tabs";
 
 export const navItems = [
   {
-    name: "Docs",
+    name: "Documentations",
     slug: "docs",
   },
   {
@@ -30,41 +30,44 @@ export default async function NavBar(): Promise<JSX.Element> {
 
   return (
     <div className="mx-auto flex h-full items-center justify-between md:container">
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-5">
         <Link href="/homepage" className="flex items-center gap-2">
-          <Image src="./Logo.svg" alt="Muse" width={25} height={25} />
-          <h1 className="text-md font-medium">Muse</h1>
+          <Image src="./word-logo.svg" alt="Muse" width={62} height={16} />
         </Link>
         <NavTabs />
         {navItems.map((item) => (
           <Link
             href={`/${item.slug}`}
             key={item.slug}
-            className="hidden space-x-3 md:flex"
+            className="hidden space-x-5 md:flex"
           >
-            <span className="">{item.name}</span>
+            <span className="text-indigo-soft text-sm font-normal hover:text-white">
+              {item.name}
+            </span>
           </Link>
         ))}
       </div>
-      <div className="hidden gap-2 text-base md:flex">
-        {!session ? (
-          <>
-            <Link href="/login">
-              <Button variant="ghost" size="sm">
-                Log in
-              </Button>
+      <div className="flex items-center gap-x-4">
+        <div className="gap-2 md:flex">
+          {!session ? (
+            <>
+              <Link href="/login">
+                <Button variant="ghost" size="sm">
+                  Log in
+                </Button>
+              </Link>
+              <Link href="/register">
+                <Button size="sm">Sign Up</Button>
+              </Link>
+            </>
+          ) : (
+            <Link href="/dashboard">
+              <Button size="sm">Dashboard</Button>
             </Link>
-            <Link href="/register">
-              <Button size="sm">Sign Up</Button>
-            </Link>
-          </>
-        ) : (
-          <Link href="/dashboard">
-            <Button size="sm">Dashboard</Button>
-          </Link>
-        )}
+          )}
+        </div>
+        <MobileNavMenu session={session} />
       </div>
-      <MobileNavMenu session={session} />
     </div>
   );
 }
