@@ -20,17 +20,22 @@ export default function HeroSection(): JSX.Element {
         </motion.p>
         <motion.h1
           className="my-6 text-center text-3xl font-bold leading-tight md:text-6xl"
-          initial={{ opacity: 0, y: 80 }}
+          initial={{ opacity: 0, y: 120 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeInOut", type: "tween" }}
+          transition={{
+            duration: 0.8,
+            ease: "easeInOut",
+            type: "tween",
+            delay: 0.1,
+          }}
         >
           Effortless Full-Stack <br /> Development with Muse
         </motion.h1>
         <motion.div
           className="text-grey/60 mb-9 text-center text-lg font-light md:text-xl"
-          initial={{ opacity: 0, y: 80 }}
+          initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2, ease: "easeInOut" }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeInOut" }}
         >
           <p className="text-indigo-soft flex text-xl md:block">
             Everything you need to code faster and smarter.
@@ -38,9 +43,9 @@ export default function HeroSection(): JSX.Element {
         </motion.div>
       </div>
       <motion.div
-        initial={{ opacity: 0, y: 80 }}
+        initial={{ opacity: 0, y: 90 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.3, ease: "easeInOut" }}
+        transition={{ duration: 0.8, delay: 0.3, ease: "easeInOut" }}
       >
         <Link href={"/dashboard"}>
           <Button className="text-md ring-banner ring-offset-faded py-6 font-normal tracking-wide ring-2 ring-offset-4">

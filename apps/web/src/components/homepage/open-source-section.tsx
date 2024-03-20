@@ -1,11 +1,25 @@
+"use client";
+
 import { Icons } from "@muse/ui/icons";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function OpenSourceSection(): JSX.Element {
   return (
     <section className="container flex flex-col items-center justify-center space-y-10">
-      <div className="flex flex-col space-y-5">
+      <motion.div
+        className="flex flex-col space-y-5"
+        initial={{ opacity: 0, y: 90 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 0.7,
+          ease: "easeInOut",
+          delay: 0.3,
+          type: "tween",
+        }}
+        viewport={{ once: true }}
+      >
         <h1 className="text-center text-3xl font-bold leading-tight md:text-5xl">
           Building for Developers
         </h1>
@@ -13,7 +27,7 @@ export default function OpenSourceSection(): JSX.Element {
           Our source code is available on GitHub - feel free to read, review, or
           <br className="hidden md:block" /> contribute to it however you want!
         </p>
-      </div>
+      </motion.div>
       <Link
         href="https://www.github.com"
         className="relative h-[311px] w-[247px] text-white shadow-xl"

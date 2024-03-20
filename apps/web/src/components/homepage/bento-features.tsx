@@ -1,10 +1,19 @@
+"use client";
+
 import { Icons } from "@muse/ui/icons";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 export default function BentoFeatures(): JSX.Element {
   return (
-    <div className="bg-soft py-[113px] text-black">
-      <div className="container flex flex-col">
+    <section className="bg-soft py-[113px] text-black">
+      <motion.div
+        className="container flex flex-col"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1.5, ease: "easeInOut" }}
+        viewport={{ once: true }}
+      >
         <div className="flex items-center">
           <Icons.Sparkles className="text-indigo-accent fill-indigo-accent mr-2 h-5 w-5" />
           <h1 className="text-indigo-accent">Features</h1>
@@ -16,9 +25,15 @@ export default function BentoFeatures(): JSX.Element {
             Muse&apos;s powerful suite of features.
           </p>
         </div>
-      </div>
+      </motion.div>
       <div className="container mt-10 grid grid-cols-3 gap-2">
-        <div className="col-span-3 h-fit w-full rounded-xl bg-white p-4 shadow-lg">
+        <motion.div
+          className="col-span-3 h-fit w-full rounded-xl bg-white p-4 shadow-lg"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1.5, ease: "easeInOut", delay: 1 }}
+          viewport={{ once: true }}
+        >
           <div className="grid items-center md:grid-cols-2">
             <div className="mt-4">
               <Image
@@ -41,8 +56,14 @@ export default function BentoFeatures(): JSX.Element {
               </p>
             </div>
           </div>
-        </div>
-        <div className="col-span-3 h-fit w-full rounded-xl bg-white p-4 shadow-lg md:col-span-2">
+        </motion.div>
+        <motion.div
+          className="col-span-3 h-fit w-full rounded-xl bg-white p-4 shadow-lg md:col-span-2"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1.5, ease: "easeInOut", delay: 2 }}
+          viewport={{ once: true }}
+        >
           <div className="grid items-center gap-2 md:grid-cols-2">
             <div className="mt-5 md:mt-0">
               <h2 className="text-indigo-accent">Real-Time Collaboration</h2>
@@ -63,8 +84,14 @@ export default function BentoFeatures(): JSX.Element {
               />
             </div>
           </div>
-        </div>
-        <div className="col-span-3 h-full w-full rounded-xl bg-white p-4 shadow-lg md:col-span-1">
+        </motion.div>
+        <motion.div
+          className="col-span-3 h-full w-full rounded-xl bg-white p-4 shadow-lg md:col-span-1"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1.5, ease: "easeInOut", delay: 2.5 }}
+          viewport={{ once: true }}
+        >
           <div className="mt-32">
             <Icons.FolderSync className="text-indigo-accent h-8 w-8" />
             <h2 className="text-indigo-accent">Cloud Sync</h2>
@@ -75,8 +102,14 @@ export default function BentoFeatures(): JSX.Element {
               version.
             </p>
           </div>
-        </div>
-        <div className="col-span-3 h-full w-full rounded-xl bg-white p-4 shadow-lg md:col-span-1">
+        </motion.div>
+        <motion.div
+          className="col-span-3 h-full w-full rounded-xl bg-white p-4 shadow-lg md:col-span-1"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1.5, ease: "easeInOut", delay: 1.5 }}
+          viewport={{ once: true }}
+        >
           <div className="flex flex-col justify-between">
             <Icons.Zap className="fill-indigo-soft text-indigo-soft mx-auto h-32 w-32 " />
             <div className="mt-8 text-center">
@@ -89,8 +122,14 @@ export default function BentoFeatures(): JSX.Element {
               </p>
             </div>
           </div>
-        </div>
-        <div className="col-span-3 h-full w-full rounded-xl bg-white p-4 shadow-lg md:col-span-2">
+        </motion.div>
+        <motion.div
+          className="col-span-3 h-full w-full rounded-xl bg-white p-4 shadow-lg md:col-span-2"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1.5, ease: "easeInOut", delay: 2 }}
+          viewport={{ once: true }}
+        >
           <div className="flex h-full flex-col items-center justify-between gap-2">
             <div className="mt-10 flex items-center justify-center gap-4">
               <Image
@@ -121,8 +160,8 @@ export default function BentoFeatures(): JSX.Element {
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -1,14 +1,23 @@
+"use client";
+
+import FeatureCard from "@/components/ui/feature-card";
 import { Separator } from "@muse/ui";
 import { Icons } from "@muse/ui/icons";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import FeatureCard from "../ui/feature-card";
 
 export default function DevelopmentEnvironment(): JSX.Element {
   return (
     <div className="bg-deep overflow-hidden py-[113px] ">
       <section className="container flex max-w-[1220px] flex-col lg:flex-row">
-        <div className="relative z-10 ml-5 flex-1 md:top-16 lg:left-0 lg:ml-0">
+        <motion.div
+          className="relative z-10 ml-5 flex-1 md:top-16 lg:left-0 lg:ml-0"
+          initial={{ opacity: 0, y: 120 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeInOut", type: "tween" }}
+          viewport={{ once: true }}
+        >
           <Link href={"/docs"} className="flex items-center gap-x-2">
             <Image
               src={"/logo-indigo.svg"}
@@ -52,7 +61,7 @@ export default function DevelopmentEnvironment(): JSX.Element {
               description="Muse's Live Preview feature displays the visual output of your code changes in real-time, directly within the development environment."
             />
           </div>
-        </div>
+        </motion.div>
         <div className="relative -mx-10 ml-1 flex-1 lg:left-5 lg:mx-0">
           <Image
             src={"/editor-mockup-deep-fade.svg"}
