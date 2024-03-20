@@ -12,10 +12,7 @@ export default function NewPasswordPage() {
           <h1 className="text-2xl font-semibold">Enter a new password</h1>
           <p className="text-grey/70">
             Return to login?{" "}
-            <Link
-              href="/login"
-              className="font-semibold text-blue-500 hover:underline"
-            >
+            <Link href="/login" className="text-indigo-medium hover:underline">
               Log In
             </Link>
           </p>

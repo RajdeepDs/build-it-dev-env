@@ -19,7 +19,9 @@ export default function AnnouncementBanner(): JSX.Element {
               orientation="vertical"
               className="hidden h-[10px] md:block"
             />
-            <p className="text-sm font-thin">{announcement}</p>
+            <p className="text-center text-sm font-thin sm:text-start">
+              {announcement}
+            </p>
           </div>
           <p className="text-grey-muted hover:text-indigo-soft hidden text-sm font-normal transition-colors duration-300 ease-out sm:flex">
             Learn more

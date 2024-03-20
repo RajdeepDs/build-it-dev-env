@@ -12,10 +12,7 @@ export default function ResetPasswordPage(): JSX.Element {
           <h1 className="text-2xl font-semibold">Forgot your password</h1>
           <p className="text-grey/70">
             Return to login?{" "}
-            <Link
-              href="/login"
-              className="font-semibold text-blue-500 hover:underline"
-            >
+            <Link href="/login" className="text-indigo-medium hover:underline">
               Log In
             </Link>
           </p>

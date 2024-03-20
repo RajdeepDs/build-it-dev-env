@@ -23,7 +23,7 @@ export default function OpenSourceSection(): JSX.Element {
         <h1 className="text-center text-3xl font-bold leading-tight md:text-5xl">
           Building for Developers
         </h1>
-        <p className="text-grey-deep text-center text-base font-light md:text-lg">
+        <p className="text-grey-deep text-center text-base md:text-lg">
           Our source code is available on GitHub - feel free to read, review, or
           <br className="hidden md:block" /> contribute to it however you want!
         </p>

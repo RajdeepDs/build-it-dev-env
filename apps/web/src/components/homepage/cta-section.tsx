@@ -4,6 +4,7 @@ import { Button } from "@muse/ui";
 import { Icons } from "@muse/ui/icons";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function CTASection(): JSX.Element {
   return (
@@ -41,7 +42,8 @@ export default function CTASection(): JSX.Element {
             }}
             viewport={{ once: true }}
           >
-            Sign Up for Your Free Muse Account and Experience a <br />
+            Sign Up for Your Free Muse Account and Experience a{" "}
+            <br className="hidden md:block" />
             Streamlined Next.js Development Workflow.
           </motion.p>
         </div>
@@ -57,10 +59,12 @@ export default function CTASection(): JSX.Element {
           }}
           viewport={{ once: true }}
         >
-          <Button className="flex items-center">
-            Create an account
-            <Icons.ChevronRight className="h-4 w-4" />
-          </Button>
+          <Link href="/register">
+            <Button className="flex items-center">
+              Create an account
+              <Icons.ChevronRight className="h-4 w-4" />
+            </Button>
+          </Link>
         </motion.div>
       </div>
       <div className="pb-28" />
