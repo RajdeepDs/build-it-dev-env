@@ -19,20 +19,26 @@ const config = {
     },
     extend: {
       colors: {
-        greyLight: "#E3E7EE",
-        grey: "#C8D0DC",
-        indigoLight: "#4A4ED9",
-        indigo2: "#3F43BC",
-        indigo: "#3538A1",
-        indigoFaded: "#2A2D86",
-        darkIndigo3: "#20236C",
-        darkIndigo2: "#171953",
-        darkIndigo: "#0E0F3B",
-        bg2: "#060725",
-        bg: "#000002",
+        deep: "#05060C",
+        faded: "#0C0D14",
+        banner: "#171D35",
+        soft: "#EEEFF1",
+        white: "#FFFFFF",
+        grey: {
+          DEFAULT: "#9198AD",
+          muted: "#707892",
+          deep: "#707892",
+        },
+        indigo: {
+          DEFAULT: "#435DB1",
+          soft: "#C9D3EE",
+          light: "#9EB1FF",
+          medium: "#8BA5FF",
+          accent: "#577EFF",
+        },
       },
       fontFamily: {
-        sans: ["Geist", "sans-serif"],
+        sans: ["var(--font-helvetica-now-text)", "sans-serif"],
         mono: ["Geist Mono", "monospace"],
       },
       keyframes: {

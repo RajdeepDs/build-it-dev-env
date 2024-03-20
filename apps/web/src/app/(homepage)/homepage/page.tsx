@@ -5,16 +5,15 @@ import OpenSourceSection from "@/components/homepage/open-source-section";
 
 export default function HomePage(): JSX.Element {
   return (
-    <div className="hero flex flex-col">
+    <div className="mt-[75px] flex flex-col">
       <HeroSection />
       <FeaturesSection />
-      <div className="border-grey/10 mt-52 border-y">
+      <div className="bg-white pt-[113px] text-black">
         <OpenSourceSection />
       </div>
-      <div className="my-24">
+      <div className="md:bg-cta bg-white pt-24 text-black">
         <CTASection />
       </div>
-      <div className="border-grey/10 h-[1px] w-full border-b" />
     </div>
   );
 }

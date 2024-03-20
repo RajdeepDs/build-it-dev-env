@@ -17,7 +17,7 @@ import {
   InputOTPGroup,
   InputOTPSlot,
 } from "@muse/ui";
-import * as Icons from "@muse/ui/icons";
+import { Icons } from "@muse/ui/icons";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { startTransition, useEffect, useState } from "react";
@@ -157,7 +157,7 @@ export default function UserLoginForm(): JSX.Element {
             )}
             <Button
               type="submit"
-              className="text-md w-full rounded-md"
+              className="text-md w-full items-center rounded-md"
               variant="form"
               disabled={isLoading}
             >

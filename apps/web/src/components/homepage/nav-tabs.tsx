@@ -17,7 +17,9 @@ export function NavTabs() {
     <NavigationMenu className="hidden md:flex">
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Features</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="text-indigo-soft">
+            Features
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               <li className="row-span-3">
@@ -35,7 +37,7 @@ export function NavTabs() {
                       />
                       Muse
                     </div>
-                    <p className="text-grey text-sm font-light leading-tight">
+                    <p className="text-sm font-light leading-tight text-white/70">
                       Elevate Your Next.js Development Experience
                     </p>
                   </a>
@@ -77,7 +79,7 @@ const ListItem = React.forwardRef<
           <div className="text-sm font-medium leading-none tracking-wider">
             {title}
           </div>
-          <p className="text-grey/70 line-clamp-2 text-sm font-light leading-snug">
+          <p className="line-clamp-2 text-sm font-light leading-snug text-white/70">
             {children}
           </p>
         </a>

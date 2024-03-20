@@ -12,10 +12,7 @@ export default function RegisterPage(): JSX.Element {
           <h1 className="text-2xl font-semibold">Create a Muse account</h1>
           <p className="text-grey/70">
             Already have an account?{" "}
-            <Link
-              href="/login"
-              className="font-semibold text-blue-500 hover:underline"
-            >
+            <Link href="/login" className="text-indigo-medium hover:underline">
               Log in
             </Link>
           </p>

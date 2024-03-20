@@ -1,5 +1,5 @@
 import { buttonVariants } from "@muse/ui";
-import * as Icons from "@muse/ui/icons";
+import { Icons } from "@muse/ui/icons";
 import { cn } from "@muse/ui/utils";
 import Link from "next/link";
 

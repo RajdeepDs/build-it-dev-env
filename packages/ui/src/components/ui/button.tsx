@@ -4,21 +4,21 @@ import * as React from "react";
 import { cn } from "../../lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-normal ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300",
   {
     variants: {
       variant: {
         default: "bg-indigo text-white hover:bg-indigoLight",
-        form: "bg-indigoLight text-white hover:bg-indigo",
+        form: "bg-indigo-accent text-white hover:bg-indigo",
         destructive: "bg-red-500 text-slate-50 hover:bg-red-500/90",
-        outline: "border border-grey/20 bg-bg2/70 hover:bg-darkIndigo",
+        outline: "border border-grey/20 bg-deep/70 hover:bg-darkIndigo",
         secondary: "bg-grey/30 hover:bg-grey/40",
-        ghost: "hover:text-white text-grey/70",
+        ghost: "hover:text-white text-indigo-soft",
         link: "text-slate-900 underline-offset-4 hover:underline",
       },
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-8 rounded-full px-3",
+        default: "h-10 px-4 py-2 rounded-lg",
+        sm: "h-8 rounded-md px-3",
         lg: "h-11 rounded-md px-8",
         icon: "h-10 w-10",
       },
