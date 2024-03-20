@@ -13,7 +13,7 @@ import {
   FormMessage,
   Input,
 } from "@muse/ui";
-import * as Icons from "@muse/ui/icons";
+import { Icons } from "@muse/ui/icons";
 import { useRouter } from "next/navigation";
 import { startTransition, useState } from "react";
 import { useForm } from "react-hook-form";

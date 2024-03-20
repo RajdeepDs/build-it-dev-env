@@ -1,5 +1,5 @@
 import { Separator } from "@muse/ui";
-import * as Icons from "@muse/ui/icons";
+import { Icons } from "@muse/ui/icons";
 import Link from "next/link";
 
 export default function AnnouncementBanner(): JSX.Element {

@@ -1,4 +1,4 @@
-import * as Icons from "@muse/ui/icons";
+import { Icons } from "@muse/ui/icons";
 import Image from "next/image";
 
 export default function BentoFeatures(): JSX.Element {

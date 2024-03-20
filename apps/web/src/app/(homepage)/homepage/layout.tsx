@@ -13,7 +13,7 @@ export default function HomePageLayout({
       <div className="h-header pointer-events-none fixed left-0 right-0 top-0 z-20 backdrop-blur-3xl" />
       {/* Header div with transparency */}
       <header
-        className="h-header fixed left-0 right-0 top-0 z-30 bg-transparent px-4 py-2
+        className="h-header bg-faded/60 fixed left-0 right-0 top-0 z-30 px-4 py-2
       "
       >
         <NavBar />

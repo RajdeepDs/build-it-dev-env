@@ -1,5 +1,5 @@
 import { Separator } from "@muse/ui";
-import * as Icons from "@muse/ui/icons";
+import { Icons } from "@muse/ui/icons";
 import Image from "next/image";
 import Link from "next/link";
 import FeatureCard from "../ui/feature-card";

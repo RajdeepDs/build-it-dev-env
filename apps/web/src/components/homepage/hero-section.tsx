@@ -1,11 +1,10 @@
 "use client";
 
 import { Button, Separator } from "@muse/ui";
-import * as Icons from "@muse/ui/icons";
+import { Icons } from "@muse/ui/icons";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { BackgroundGradient } from "../ui/background-gradient";
 
 export default function HeroSection(): JSX.Element {
   return (
@@ -20,7 +19,7 @@ export default function HeroSection(): JSX.Element {
           build. communicate. deploy.
         </motion.p>
         <motion.h1
-          className="my-6 bg-gradient-to-br from-white from-25% to-white/80 to-75% bg-clip-text text-center text-3xl font-bold leading-tight text-transparent md:text-6xl"
+          className="my-6 text-center text-3xl font-bold leading-tight md:text-6xl"
           initial={{ opacity: 0, y: 80 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeInOut", type: "tween" }}
@@ -59,7 +58,7 @@ export default function HeroSection(): JSX.Element {
           height: "auto",
         }}
         width={1240}
-        height={750}
+        height={950}
         className="border-indigoLight mt-28 rounded-lg border"
       />
       <Separator className="my-[113px] opacity-20" />

@@ -32,7 +32,7 @@ export default async function NavBar(): Promise<JSX.Element> {
     <div className="mx-auto flex h-full items-center justify-between md:container">
       <div className="flex items-center gap-5">
         <Link href="/homepage" className="flex items-center gap-2">
-          <Image src="./word-logo.svg" alt="Muse" width={62} height={16} />
+          <Image src="/word-logo.svg" alt="Muse" width={62} height={16} />
         </Link>
         <NavTabs />
         {navItems.map((item) => (

@@ -37,7 +37,7 @@ export function NavTabs() {
                       />
                       Muse
                     </div>
-                    <p className="text-grey text-sm font-light leading-tight">
+                    <p className="text-sm font-light leading-tight text-white/70">
                       Elevate Your Next.js Development Experience
                     </p>
                   </a>
@@ -79,7 +79,7 @@ const ListItem = React.forwardRef<
           <div className="text-sm font-medium leading-none tracking-wider">
             {title}
           </div>
-          <p className="text-grey/70 line-clamp-2 text-sm font-light leading-snug">
+          <p className="line-clamp-2 text-sm font-light leading-snug text-white/70">
             {children}
           </p>
         </a>

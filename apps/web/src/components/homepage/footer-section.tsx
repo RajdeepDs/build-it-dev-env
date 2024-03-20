@@ -1,4 +1,5 @@
-import * as Icons from "@muse/ui/icons";
+import { Separator } from "@muse/ui";
+import { Icons } from "@muse/ui/icons";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -11,17 +12,18 @@ export default function FooterSection(): JSX.Element {
           <h1 className="font-medium">Muse</h1>
         </Link>
         <div className="flex items-center gap-4">
+          <p className="text-grey-deep hidden text-sm md:flex">
+            rajdeepds626@gmail.com
+          </p>
+          <Separator
+            orientation="vertical"
+            className="hidden h-4 opacity-40 md:block"
+          />
           <Link href="https://twitter.com/Rajdeep__ds">
-            <Icons.Twitter className="fill-grey h-5 w-5 cursor-pointer stroke-none" />
+            <Icons.Twitter className="fill-indigo-accent h-5 w-5 cursor-pointer stroke-none" />
           </Link>
           <Link href="https://github.com/RajdeepDs">
-            <Image
-              src="/github-icon.svg"
-              alt="Github"
-              width={20}
-              height={20}
-              className="cursor-pointer"
-            />
+            <Icons.Github className="text-indigo-accent h-5 w-5 cursor-pointer stroke-none" />
           </Link>
         </div>
       </div>
@@ -29,16 +31,16 @@ export default function FooterSection(): JSX.Element {
         <div className="md:col-start-2">
           <ul className="flex flex-col gap-2">
             <li className="text-lg font-medium">Features</li>
-            <li className="text-grey-deep hover:text-grey w-fit cursor-pointer font-extralight">
+            <li className="text-grey-deep w-fit cursor-pointer text-sm">
               Workspace
             </li>
-            <li className="text-grey-deep hover:text-grey w-fit cursor-pointer font-extralight">
+            <li className="text-grey-deep w-fit cursor-pointer text-sm">
               Collaboration
             </li>
-            <li className="text-grey-deep hover:text-grey w-fit cursor-pointer font-extralight">
+            <li className="text-grey-deep w-fit cursor-pointer text-sm">
               Deployment
             </li>
-            <li className="text-grey-deep hover:text-grey w-fit cursor-pointer font-extralight">
+            <li className="text-grey-deep w-fit cursor-pointer text-sm">
               Integrations
             </li>
           </ul>
@@ -46,16 +48,16 @@ export default function FooterSection(): JSX.Element {
         <div className="md:col-start-4">
           <ul className="flex flex-col gap-2">
             <li className="text-lg font-medium">Product</li>
-            <li className="text-grey-deep hover:text-grey w-fit cursor-pointer font-extralight">
+            <li className="text-grey-deep w-fit cursor-pointer text-sm">
               Blog
             </li>
-            <li className="text-grey-deep hover:text-grey w-fit cursor-pointer font-extralight">
+            <li className="text-grey-deep w-fit cursor-pointer text-sm">
               Changelog
             </li>
-            <li className="text-grey-deep hover:text-grey w-fit cursor-pointer font-extralight">
+            <li className="text-grey-deep w-fit cursor-pointer text-sm">
               Pricing
             </li>
-            <li className="text-grey-deep hover:text-grey w-fit cursor-pointer font-extralight">
+            <li className="text-grey-deep w-fit cursor-pointer text-sm">
               GitHub
             </li>
           </ul>
@@ -63,10 +65,10 @@ export default function FooterSection(): JSX.Element {
         <div className="md:col-start-6">
           <ul className="flex flex-col gap-2">
             <li className="text-lg font-medium">Resources</li>
-            <li className="text-grey-deep hover:text-grey w-fit cursor-pointer font-extralight">
+            <li className="text-grey-deep w-fit cursor-pointer text-sm">
               Privacy policy
             </li>
-            <li className="text-grey-deep hover:text-grey w-fit cursor-pointer font-extralight">
+            <li className="text-grey-deep w-fit cursor-pointer text-sm">
               Terms of service
             </li>
           </ul>

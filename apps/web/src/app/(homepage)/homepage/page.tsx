@@ -8,8 +8,10 @@ export default function HomePage(): JSX.Element {
     <div className="mt-[75px] flex flex-col">
       <HeroSection />
       <FeaturesSection />
-      <div className="border-grey/10 border-y bg-white py-[113px] text-black">
+      <div className="bg-white pt-[113px] text-black">
         <OpenSourceSection />
+      </div>
+      <div className="md:bg-cta bg-white pt-24 text-black">
         <CTASection />
       </div>
     </div>

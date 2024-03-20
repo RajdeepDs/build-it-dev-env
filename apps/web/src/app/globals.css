@@ -2,20 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Scrollbar styles */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  border: 1px solid rgba(165, 165, 165, 0.377);
-  border-radius: 1rem;
-}
-
 /* CSS variables */
 :root {
   --header-height: 52px;
@@ -31,17 +17,6 @@
   padding-top: var(--header-height);
 }
 
-/* Hero section styles
-.hero {
-  background: radial-gradient(
-    ellipse 50% 20% at 50% -10%,
-    rgba(74, 79, 217, 0.7),
-    hsla(0, 0%, 100%, 0)
-  );
-  margin-top: calc(-1 * var(--header-height));
-  padding-top: var(--header-height);
-} */
-
 /* Border gradient */
 .border-gradient {
   background: radial-gradient(
@@ -49,4 +24,13 @@
     rgba(74, 78, 217, 0.3),
     rgba(1, 4, 25, 0) 100%
   );
+}
+
+@media (min-width: 768px) {
+  .md\:bg-cta {
+    background-image: url("../../public/dots.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 }

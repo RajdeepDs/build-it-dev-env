@@ -15,7 +15,7 @@ export default function LoginPage(): JSX.Element {
             Don&apos;t have an account?{" "}
             <Link
               href="/register"
-              className="font-semibold text-blue-500 hover:underline"
+              className="text-indigo-medium hover:underline"
             >
               Sign up
             </Link>

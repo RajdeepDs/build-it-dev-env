@@ -1,16 +1,15 @@
-import { Button } from "@muse/ui";
-import * as Icons from "@muse/ui/icons";
+import { Icons } from "@muse/ui/icons";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function OpenSourceSection(): JSX.Element {
   return (
-    <div className="container flex flex-col items-center justify-center space-y-10 py-14">
+    <section className="container flex flex-col items-center justify-center space-y-10">
       <div className="flex flex-col space-y-5">
         <h1 className="text-center text-3xl font-bold leading-tight md:text-5xl">
           Building for Developers
         </h1>
-        <p className="text-grey-deep text-center text-lg font-light md:text-xl">
+        <p className="text-grey-deep text-center text-base font-light md:text-lg">
           Our source code is available on GitHub - feel free to read, review, or
           <br className="hidden md:block" /> contribute to it however you want!
         </p>
@@ -56,13 +55,13 @@ export default function OpenSourceSection(): JSX.Element {
               </p>
             </div>
           </div>
-          <Icons.ArrowUpRight className="bg-deep border-grey/50 absolute bottom-3 right-2 h-6 w-6 rounded-full border text-white" />
+          <Icons.ArrowUpRight className="bg-deep border-grey/20 text-soft absolute bottom-3 right-2 h-6 w-6 rounded-full border" />
         </div>
       </Link>
       <Link href={"/docs"} className="text-indigo-accent flex items-center">
         Explore Documentation
         <Icons.ChevronRight className="h-4 w-4" />
       </Link>
-    </div>
+    </section>
   );
 }

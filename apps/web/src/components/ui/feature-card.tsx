@@ -1,4 +1,4 @@
-import * as Icons from "@muse/ui/icons";
+import { Icons } from "@muse/ui/icons";
 
 interface FeatureCardProps {
   icon: string;
@@ -10,8 +10,7 @@ export default function FeatureCard({
   title,
   description,
 }: FeatureCardProps): JSX.Element {
-  const Icon: Icons.LucideIcon =
-    Icons[(icon as keyof typeof Icons) || "LayoutGrid"];
+  const Icon = Icons[(icon as keyof typeof Icons) || "LayoutGrid"];
 
   return (
     <div className="border-grey-deep/50 max-h-[270px] rounded-xl border p-5 lg:w-[300px]">

@@ -2,7 +2,7 @@
 
 import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
 import { Button } from "@muse/ui";
-import * as Icons from "@muse/ui/icons";
+import { Icons } from "@muse/ui/icons";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
 import React from "react";
