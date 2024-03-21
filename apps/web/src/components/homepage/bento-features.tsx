@@ -20,7 +20,7 @@ export default function BentoFeatures(): JSX.Element {
         </div>
         <div className="mt-5">
           <h1 className="text-4xl font-bold">Unleash the power of Muse.</h1>
-          <p className="text-grey-deep">
+          <p className="text-grey-deep mt-3">
             Build faster, collaborate seamlessly, and deploy effortlessly with
             Muse&apos;s powerful suite of features.
           </p>
@@ -94,7 +94,7 @@ export default function BentoFeatures(): JSX.Element {
         >
           <div className="mt-32">
             <Icons.FolderSync className="text-indigo-accent h-8 w-8" />
-            <h2 className="text-indigo-accent">Cloud Sync</h2>
+            <h2 className="text-indigo-accent mt-5">Cloud Sync</h2>
             <h1 className="text-xl font-bold">Keep everything sync.</h1>
             <p className="text-grey">
               Work seamlessly across devices. Muse automatically syncs your
@@ -113,12 +113,10 @@ export default function BentoFeatures(): JSX.Element {
           <div className="flex flex-col justify-between">
             <Icons.Zap className="fill-indigo-soft text-indigo-soft mx-auto h-32 w-32 " />
             <div className="mt-8 text-center">
-              <h2 className="text-indigo-accent">Cloud Sync</h2>
-              <h1 className="text-xl font-bold">Keep everything sync.</h1>
+              <h2 className="text-indigo-accent">Designed speed</h2>
+              <h1 className="text-xl font-bold">Built for performance.</h1>
               <p className="text-grey">
-                Work seamlessly across devices. Muse automatically syncs your
-                project files to the cloud, ensuring you always have the latest
-                version.
+                Meticulously designed and optimized for a great user experience.
               </p>
             </div>
           </div>

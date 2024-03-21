@@ -20,7 +20,7 @@ export default function OpenSourceSection(): JSX.Element {
         }}
         viewport={{ once: true }}
       >
-        <h1 className="text-center text-3xl font-bold leading-tight md:text-5xl">
+        <h1 className="text-center text-2xl font-bold leading-tight md:text-5xl">
           Building for Developers
         </h1>
         <p className="text-grey-deep text-center text-base md:text-lg">

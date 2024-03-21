@@ -11,7 +11,7 @@ export default function HeroSection(): JSX.Element {
     <div className="container flex flex-col items-center gap-y-5 ">
       <div className="flex flex-col items-center px-4">
         <motion.p
-          className="text-indigo-light mb-11 font-medium uppercase tracking-wider"
+          className="text-indigo-light mb-11 text-sm font-medium uppercase tracking-wider sm:text-base"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, ease: "easeInOut" }}
