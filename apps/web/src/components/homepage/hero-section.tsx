@@ -19,7 +19,7 @@ export default function HeroSection(): JSX.Element {
           build. communicate. deploy.
         </motion.p>
         <motion.h1
-          className="my-6 text-center text-3xl font-bold leading-tight md:text-6xl"
+          className="my-6 text-center text-2xl font-bold leading-tight md:text-6xl"
           initial={{ opacity: 0, y: 120 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
@@ -37,7 +37,7 @@ export default function HeroSection(): JSX.Element {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeInOut" }}
         >
-          <p className="text-indigo-soft flex text-xl md:block">
+          <p className="text-indigo-soft flex text-lg sm:text-xl md:block">
             Everything you need to code faster and smarter.
           </p>
         </motion.div>

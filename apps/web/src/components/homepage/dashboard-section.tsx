@@ -12,7 +12,7 @@ export default function DashboardSection(): JSX.Element {
     <div className="mb-[113px] overflow-hidden">
       <section className="container flex max-w-[1220px] flex-col lg:flex-row">
         <motion.div
-          className="relative z-10 ml-5 flex-1 md:top-16 lg:left-0 lg:ml-0"
+          className="relative z-10 ml-5 flex-1 md:ml-16 lg:left-0 lg:top-16 lg:ml-0"
           initial={{ opacity: 0, y: 120 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeInOut", type: "tween" }}
@@ -29,7 +29,7 @@ export default function DashboardSection(): JSX.Element {
             <Separator orientation="vertical" className="h-[10px]" />
             <h2 className="text-indigo-light text-sm">Muse</h2>
           </Link>
-          <h1 className="mt-4 text-4xl font-bold md:whitespace-nowrap">
+          <h1 className="mt-4 text-2xl font-bold sm:text-4xl md:whitespace-nowrap">
             Organize & Conquer.
             <div className="pb-1">Centralized Workspace Management.</div>
           </h1>
@@ -59,15 +59,25 @@ export default function DashboardSection(): JSX.Element {
           </div>
         </motion.div>
         <div className="relative -mx-10 ml-1 flex-1 lg:left-5 lg:mx-0">
+          {/* For laptops or PC Screens */}
           <Image
             src={"/editor-mockup-fade.svg"}
             alt={"Editor Mockup"}
             width={550}
             height={250}
             className={
-              "absolute left-0 top-0 mt-10 hidden max-w-none rounded-s-xl md:block"
+              "absolute left-0 top-0 mt-10 hidden max-w-none rounded-s-xl lg:block"
             }
           />
+          {/* For IPAD Screens */}
+          <Image
+            src={"/editor-mockup-fade.svg"}
+            alt={"Editor Mockup"}
+            width={550}
+            height={250}
+            className={"mt-5 hidden w-full rounded-s-lg md:block lg:hidden"}
+          />
+          {/* For Mobile Screens */}
           <Image
             src={"/editor-mockup-slice.svg"}
             alt={"Editor Mockup"}

@@ -19,7 +19,9 @@ export default function BentoFeatures(): JSX.Element {
           <h1 className="text-indigo-accent">Features</h1>
         </div>
         <div className="mt-5">
-          <h1 className="text-4xl font-bold">Unleash the power of Muse.</h1>
+          <h1 className="text-2xl font-bold sm:text-4xl">
+            Unleash the power of Muse.
+          </h1>
           <p className="text-grey-deep mt-3">
             Build faster, collaborate seamlessly, and deploy effortlessly with
             Muse&apos;s powerful suite of features.
@@ -86,21 +88,23 @@ export default function BentoFeatures(): JSX.Element {
           </div>
         </motion.div>
         <motion.div
-          className="col-span-3 h-full w-full rounded-xl bg-white p-4 shadow-lg md:col-span-1"
+          className="col-span-3 min-h-56 w-full rounded-xl bg-white p-4 shadow-lg md:col-span-1"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1.5, ease: "easeInOut", delay: 2.5 }}
           viewport={{ once: true }}
         >
-          <div className="mt-32">
-            <Icons.FolderSync className="text-indigo-accent h-8 w-8" />
-            <h2 className="text-indigo-accent mt-5">Cloud Sync</h2>
-            <h1 className="text-xl font-bold">Keep everything sync.</h1>
-            <p className="text-grey">
-              Work seamlessly across devices. Muse automatically syncs your
-              project files to the cloud, ensuring you always have the latest
-              version.
-            </p>
+          <div className="relative h-full">
+            <div className="absolute inset-x-0 bottom-0">
+              <Icons.FolderSync className="text-indigo-accent h-8 w-8" />
+              <h2 className="text-indigo-accent mt-5">Cloud Sync</h2>
+              <h1 className="text-xl font-bold">Keep everything sync.</h1>
+              <p className="text-grey">
+                Work seamlessly across devices. Muse automatically syncs your
+                project files to the cloud, ensuring you always have the latest
+                version.
+              </p>
+            </div>
           </div>
         </motion.div>
         <motion.div
