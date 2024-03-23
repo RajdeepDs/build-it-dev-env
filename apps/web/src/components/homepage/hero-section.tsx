@@ -59,11 +59,11 @@ export default function HeroSection(): JSX.Element {
         alt="Editor Mockup"
         sizes="100vw"
         style={{
-          width: "90%",
           height: "auto",
         }}
         width={1240}
         height={950}
+        priority={true}
         className="border-indigoLight mt-28 rounded-lg border"
       />
       <Separator className="my-[113px] opacity-20" />

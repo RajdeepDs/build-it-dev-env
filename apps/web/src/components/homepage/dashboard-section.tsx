@@ -59,7 +59,6 @@ export default function DashboardSection(): JSX.Element {
           </div>
         </motion.div>
         <div className="relative -mx-10 ml-1 flex-1 lg:left-5 lg:mx-0">
-          {/* For laptops or PC Screens */}
           <Image
             src={"/editor-mockup-fade.svg"}
             alt={"Editor Mockup"}
@@ -69,7 +68,6 @@ export default function DashboardSection(): JSX.Element {
               "absolute left-0 top-0 mt-10 hidden max-w-none rounded-s-xl lg:block"
             }
           />
-          {/* For IPAD Screens */}
           <Image
             src={"/editor-mockup-fade.svg"}
             alt={"Editor Mockup"}
@@ -77,7 +75,6 @@ export default function DashboardSection(): JSX.Element {
             height={250}
             className={"mt-5 hidden w-full rounded-s-lg md:block lg:hidden"}
           />
-          {/* For Mobile Screens */}
           <Image
             src={"/editor-mockup-slice.svg"}
             alt={"Editor Mockup"}

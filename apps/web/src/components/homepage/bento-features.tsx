@@ -63,7 +63,7 @@ export default function BentoFeatures(): JSX.Element {
           className="col-span-3 h-fit w-full rounded-xl bg-white p-4 shadow-lg md:col-span-2"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 1.5, ease: "easeInOut", delay: 2 }}
+          transition={{ duration: 1.5, ease: "easeInOut", delay: 1 }}
           viewport={{ once: true }}
         >
           <div className="grid items-center gap-2 md:grid-cols-2">
@@ -91,7 +91,7 @@ export default function BentoFeatures(): JSX.Element {
           className="col-span-3 min-h-56 w-full rounded-xl bg-white p-4 shadow-lg md:col-span-1"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 1.5, ease: "easeInOut", delay: 2.5 }}
+          transition={{ duration: 1.5, ease: "easeInOut", delay: 1 }}
           viewport={{ once: true }}
         >
           <div className="relative h-full">
@@ -111,7 +111,7 @@ export default function BentoFeatures(): JSX.Element {
           className="col-span-3 h-full w-full rounded-xl bg-white p-4 shadow-lg md:col-span-1"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 1.5, ease: "easeInOut", delay: 1.5 }}
+          transition={{ duration: 1.5, ease: "easeInOut", delay: 1 }}
           viewport={{ once: true }}
         >
           <div className="flex flex-col justify-between">
@@ -129,7 +129,7 @@ export default function BentoFeatures(): JSX.Element {
           className="col-span-3 h-full w-full rounded-xl bg-white p-4 shadow-lg md:col-span-2"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 1.5, ease: "easeInOut", delay: 2 }}
+          transition={{ duration: 1.5, ease: "easeInOut", delay: 1 }}
           viewport={{ once: true }}
         >
           <div className="flex h-full flex-col items-center justify-between gap-2">

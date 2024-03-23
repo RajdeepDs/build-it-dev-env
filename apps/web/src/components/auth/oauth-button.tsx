@@ -19,7 +19,7 @@ export function OauthButton({ type }: { type: string }): JSX.Element {
     signIn(provider, { callbackUrl: DEFAULT_LOGIN_REDIRECT });
   };
   return (
-    <div className="flex flex-col gap-4 md:flex-row">
+    <div className="flex  flex-row gap-4">
       <Button
         onClick={() => onClick("github")}
         variant="outline"
@@ -36,7 +36,7 @@ export function OauthButton({ type }: { type: string }): JSX.Element {
             height={20}
           />
         )}
-        {type} with GitHub
+        <p className="hidden sm:block">{type} with GitHub</p>
       </Button>
       <Button
         onClick={() => onClick("google")}
@@ -54,7 +54,7 @@ export function OauthButton({ type }: { type: string }): JSX.Element {
             height={20}
           />
         )}
-        {type} with Google
+        <p className="hidden sm:block">{type} with Google</p>
       </Button>
     </div>
   );
