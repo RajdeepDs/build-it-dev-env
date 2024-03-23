@@ -11,7 +11,7 @@ export default function HeroSection(): JSX.Element {
     <div className="container flex flex-col items-center gap-y-5 ">
       <div className="flex flex-col items-center px-4">
         <motion.p
-          className="text-indigo-light mb-11 font-medium uppercase tracking-wider"
+          className="text-indigo-light mb-11 text-sm font-medium uppercase tracking-wider sm:text-base"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, ease: "easeInOut" }}
@@ -19,7 +19,7 @@ export default function HeroSection(): JSX.Element {
           build. communicate. deploy.
         </motion.p>
         <motion.h1
-          className="my-6 text-center text-3xl font-bold leading-tight md:text-6xl"
+          className="my-6 text-center text-2xl font-bold leading-tight md:text-6xl"
           initial={{ opacity: 0, y: 120 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
@@ -37,7 +37,7 @@ export default function HeroSection(): JSX.Element {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeInOut" }}
         >
-          <p className="text-indigo-soft flex text-xl md:block">
+          <p className="text-indigo-soft flex text-lg sm:text-xl md:block">
             Everything you need to code faster and smarter.
           </p>
         </motion.div>
@@ -59,11 +59,11 @@ export default function HeroSection(): JSX.Element {
         alt="Editor Mockup"
         sizes="100vw"
         style={{
-          width: "90%",
           height: "auto",
         }}
         width={1240}
         height={950}
+        priority={true}
         className="border-indigoLight mt-28 rounded-lg border"
       />
       <Separator className="my-[113px] opacity-20" />

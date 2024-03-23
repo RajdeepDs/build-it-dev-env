@@ -14,7 +14,7 @@ export default function AuthLayout({
         href="/homepage"
         className={cn(
           buttonVariants({ variant: "ghost" }),
-          "absolute left-2 top-4 md:left-8 md:top-8",
+          "absolute left-2 top-4 hidden sm:flex md:left-8 md:top-8",
         )}
       >
         <Icons.ChevronLeft className="h-4 w-4" />
