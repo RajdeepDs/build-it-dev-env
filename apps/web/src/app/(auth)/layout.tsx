@@ -1,6 +1,6 @@
-import { buttonVariants } from "@muse/ui";
-import { Icons } from "@muse/ui/icons";
-import { cn } from "@muse/ui/utils";
+import { buttonVariants } from "@buildit/ui";
+import { Icons } from "@buildit/ui/icons";
+import { cn } from "@buildit/ui/utils";
 import Link from "next/link";
 
 export default function AuthLayout({

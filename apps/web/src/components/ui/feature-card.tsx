@@ -1,4 +1,4 @@
-import { Icons } from "@muse/ui/icons";
+import { Icons } from "@buildit/ui/icons";
 
 interface FeatureCardProps {
   icon: string;

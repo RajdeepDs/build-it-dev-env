@@ -8,10 +8,10 @@ export default function NewVerificationPage(): JSX.Element {
     <div className="mx-auto flex h-screen w-full flex-col items-center justify-center gap-y-4 md:max-w-[450px]">
       <div className="flex flex-col gap-y-6 text-center">
         <Image
-          src="/Logo.svg"
+          src="/WhiteLogo.svg"
           width={35}
           height={35}
-          alt="Muse Logo"
+          alt="Logo"
           className="mx-auto flex items-center "
         />
         <div className="flex flex-col gap-1">

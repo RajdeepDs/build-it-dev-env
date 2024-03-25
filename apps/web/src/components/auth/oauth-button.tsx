@@ -1,8 +1,8 @@
 "use client";
 
 import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
-import { Button } from "@muse/ui";
-import { Icons } from "@muse/ui/icons";
+import { Button } from "@buildit/ui";
+import { Icons } from "@buildit/ui/icons";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
 import React from "react";

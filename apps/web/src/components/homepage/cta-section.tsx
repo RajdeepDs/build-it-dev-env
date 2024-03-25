@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@muse/ui";
-import { Icons } from "@muse/ui/icons";
+import { Button } from "@buildit/ui";
+import { Icons } from "@buildit/ui/icons";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,8 +17,8 @@ export default function CTASection(): JSX.Element {
           transition={{ duration: 1.5, ease: "easeInOut", type: "tween" }}
           viewport={{ once: true }}
         >
-          <Image src="/LogoDark.svg" alt="Logo" width={30} height={30} />
-          <h1 className="text-xl font-medium">Muse</h1>
+          <Image src="/BlackLogo.svg" alt="Logo" width={30} height={30} />
+          <h1 className="text-xl font-medium">BuildIt</h1>
         </motion.div>
         <div className="mt-7">
           <motion.h1
@@ -42,7 +42,7 @@ export default function CTASection(): JSX.Element {
             }}
             viewport={{ once: true }}
           >
-            Sign Up for Your Free Muse Account and Experience a{" "}
+            Sign Up for Your Free BuildIt Account and Experience a{" "}
             <br className="hidden md:block" />
             Streamlined Next.js Development Workflow.
           </motion.p>

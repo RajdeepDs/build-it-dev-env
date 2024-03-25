@@ -1,8 +1,8 @@
 "use client";
 
 import FeatureCard from "@/components/ui/feature-card";
-import { Separator } from "@muse/ui";
-import { Icons } from "@muse/ui/icons";
+import { Separator } from "@buildit/ui";
+import { Icons } from "@buildit/ui/icons";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -20,8 +20,8 @@ export default function DevelopmentEnvironment(): JSX.Element {
         >
           <Link href={"/docs"} className="flex items-center gap-x-2">
             <Image
-              src={"/logo-indigo.svg"}
-              alt={"Muse Logo"}
+              src={"/IndigoLogo.svg"}
+              alt={"BuildIt Logo"}
               width={12}
               height={12}
             />
@@ -29,15 +29,15 @@ export default function DevelopmentEnvironment(): JSX.Element {
               Development Environment
             </h2>
             <Separator orientation="vertical" className="h-[10px]" />
-            <h2 className="text-indigo-light text-sm">Muse</h2>
+            <h2 className="text-indigo-light text-sm">BuildIt</h2>
           </Link>
           <h1 className="mt-4 text-2xl font-bold sm:text-4xl md:whitespace-nowrap">
             Unleash Creativity.
             <div className="pb-1">Development Environment for Next.js.</div>
           </h1>
           <p className="text-grey-muted mt-2 text-base">
-            Muse&apos;s development environment provides everything you need to
-            code Next.js applications with speed and focus. Write clean,
+            BuildIt&apos;s development environment provides everything you need
+            to code Next.js applications with speed and focus. Write clean,
             well-structured code with features like syntax highlighting,
             autocompletion, and linting.
           </p>
@@ -52,13 +52,13 @@ export default function DevelopmentEnvironment(): JSX.Element {
             <FeatureCard
               icon={"Bot"}
               title="Smart Code Assist"
-              description="Muse's intelligent code assist provides real-time suggestions and autocompletion based on your project context and Next.js framework specifics."
+              description="BuildIt's intelligent code assist provides real-time suggestions and autocompletion based on your project context and Next.js framework specifics."
             />
             <div className="mt-4 md:hidden" />
             <FeatureCard
               icon={"Radio"}
               title="Live Preview"
-              description="Muse's Live Preview feature displays the visual output of your code changes in real-time, directly within the development environment."
+              description="BuildIt's Live Preview feature displays the visual output of your code changes in real-time, directly within the development environment."
             />
           </div>
         </motion.div>

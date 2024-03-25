@@ -2,7 +2,6 @@
 
 import { login } from "@/actions/login";
 import { LoginFormSchema } from "@/schemas";
-import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Button,
   Form,
@@ -16,8 +15,9 @@ import {
   InputOTP,
   InputOTPGroup,
   InputOTPSlot,
-} from "@muse/ui";
-import { Icons } from "@muse/ui/icons";
+} from "@buildit/ui";
+import { Icons } from "@buildit/ui/icons";
+import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { startTransition, useEffect, useState } from "react";

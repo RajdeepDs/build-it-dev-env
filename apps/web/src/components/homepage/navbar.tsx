@@ -1,5 +1,5 @@
 import { auth } from "@/auth";
-import { Button } from "@muse/ui";
+import { Button } from "@buildit/ui";
 import { Session } from "next-auth/types";
 import Image from "next/image";
 import Link from "next/link";
@@ -32,7 +32,13 @@ export default async function NavBar(): Promise<JSX.Element> {
     <div className="mx-auto flex h-full items-center justify-between md:container">
       <div className="flex items-center gap-5">
         <Link href="/homepage" className="flex items-center gap-2">
-          <Image src="/word-logo.svg" alt="Muse" width={62} height={16} />
+          <Image
+            src="/LightIndigoLogo.svg"
+            alt="BuildIt"
+            width={16}
+            height={16}
+          />
+          <h1 className="text-indigo-soft text-sm">BuildIt</h1>
         </Link>
         <NavTabs />
         {navItems.map((item) => (

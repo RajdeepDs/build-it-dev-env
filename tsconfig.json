@@ -1,3 +1,3 @@
 {
-  "extends": "@muse/typescript-config/base.json"
+  "extends": "@buildit/typescript-config/base.json"
 }

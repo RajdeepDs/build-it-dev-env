@@ -1,5 +1,5 @@
-import { Separator } from "@muse/ui";
-import { Icons } from "@muse/ui/icons";
+import { Separator } from "@buildit/ui";
+import { Icons } from "@buildit/ui/icons";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,8 +8,8 @@ export default function FooterSection(): JSX.Element {
     <div className="container flex flex-col justify-between text-black md:flex-row">
       <div className="flex justify-between md:flex-col">
         <Link href="/" className="flex items-center gap-2">
-          <Image src="/LogoDark.svg" alt="Logo" width={25} height={25} />
-          <h1 className="font-medium">Muse</h1>
+          <Image src="/BlackLogo.svg" alt="Logo" width={25} height={25} />
+          <h1 className="font-medium">BuildIt</h1>
         </Link>
         <div className="flex items-center gap-4">
           <p className="text-grey-deep hidden text-sm md:flex">

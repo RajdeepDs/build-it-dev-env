@@ -2,7 +2,6 @@
 
 import { register } from "@/actions/register";
 import { RegisterFormSchema } from "@/schemas";
-import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Button,
   Form,
@@ -12,8 +11,9 @@ import {
   FormLabel,
   FormMessage,
   Input,
-} from "@muse/ui";
-import { Icons } from "@muse/ui/icons";
+} from "@buildit/ui";
+import { Icons } from "@buildit/ui/icons";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import React, { startTransition } from "react";
 import { useForm } from "react-hook-form";

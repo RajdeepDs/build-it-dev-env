@@ -7,8 +7,8 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "@muse/ui";
-import { cn } from "@muse/ui/utils";
+} from "@buildit/ui";
+import { cn } from "@buildit/ui/utils";
 import Image from "next/image";
 import React from "react";
 
@@ -30,12 +30,12 @@ export function NavTabs() {
                   >
                     <div className="mb-2 mt-4 flex flex-col gap-2 text-lg font-medium">
                       <Image
-                        src="/Logo.svg"
+                        src="/WhiteLogo.svg"
                         width={25}
                         height={25}
-                        alt="muse-logo"
+                        alt="logo"
                       />
-                      Muse
+                      BuildIt
                     </div>
                     <p className="text-sm font-light leading-tight text-white/70">
                       Elevate Your Next.js Development Experience

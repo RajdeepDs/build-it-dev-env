@@ -1,6 +1,6 @@
 "use client";
 
-import { Icons } from "@muse/ui/icons";
+import { Icons } from "@buildit/ui/icons";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -54,13 +54,13 @@ export default function OpenSourceSection(): JSX.Element {
           <div className="flex flex-col gap-2">
             <div className="flex gap-2">
               <Image
-                src={"/Logo.svg"}
-                alt="GitHub"
+                src={"/WhiteLogo.svg"}
+                alt="Logo"
                 width={20}
                 height={20}
                 className=""
               />
-              <h1 className="text-sm">Muse</h1>
+              <h1 className="text-sm">BuildIt</h1>
             </div>
             <div className="flex items-center">
               <p className="text-xs">

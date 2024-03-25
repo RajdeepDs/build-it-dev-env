@@ -8,15 +8,15 @@ importers:
 
   .:
     devDependencies:
+      '@buildit/tailwind-config':
+        specifier: workspace:*
+        version: link:packages/tailwind-config
+      '@buildit/typescript-config':
+        specifier: workspace:*
+        version: link:packages/typescript-config
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.1.1
         version: 4.1.1(prettier@3.2.5)
-      '@muse/tailwind-config':
-        specifier: workspace:*
-        version: link:packages/tailwind-config
-      '@muse/typescript-config':
-        specifier: workspace:*
-        version: link:packages/typescript-config
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
@@ -35,15 +35,15 @@ importers:
       '@auth/prisma-adapter':
         specifier: 1.0.12
         version: 1.0.12(@prisma/client@5.11.0)
+      '@buildit/tailwind-config':
+        specifier: workspace:*
+        version: link:../../packages/tailwind-config
+      '@buildit/ui':
+        specifier: workspace:^
+        version: link:../../packages/ui
       '@hookform/resolvers':
         specifier: ^3.3.4
         version: 3.3.4(react-hook-form@7.51.0)
-      '@muse/tailwind-config':
-        specifier: workspace:*
-        version: link:../../packages/tailwind-config
-      '@muse/ui':
-        specifier: workspace:^
-        version: link:../../packages/ui
       '@prisma/client':
         specifier: ^5.11.0
         version: 5.11.0(prisma@5.11.0)
@@ -129,7 +129,7 @@ importers:
 
   packages/tailwind-config:
     devDependencies:
-      '@muse/typescript-config':
+      '@buildit/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@types/node':
@@ -192,10 +192,10 @@ importers:
         specifier: ^3.22.4
         version: 3.22.4
     devDependencies:
-      '@muse/tailwind-config':
+      '@buildit/tailwind-config':
         specifier: workspace:*
         version: link:../tailwind-config
-      '@muse/typescript-config':
+      '@buildit/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@types/react':

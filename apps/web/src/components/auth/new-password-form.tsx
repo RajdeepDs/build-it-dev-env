@@ -2,7 +2,6 @@
 
 import { newPassword } from "@/actions/new-password";
 import { NewPasswordFormSchema } from "@/schemas";
-import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Button,
   Form,
@@ -12,8 +11,9 @@ import {
   FormLabel,
   FormMessage,
   Input,
-} from "@muse/ui";
-import { Icons } from "@muse/ui/icons";
+} from "@buildit/ui";
+import { Icons } from "@buildit/ui/icons";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter, useSearchParams } from "next/navigation";
 import { startTransition, useState } from "react";
 import { useForm } from "react-hook-form";

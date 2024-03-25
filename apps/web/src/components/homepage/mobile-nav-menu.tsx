@@ -1,6 +1,6 @@
 "use client";
 
-import { Icons } from "@muse/ui/icons";
+import { Icons } from "@buildit/ui/icons";
 import { AnimatePresence, motion } from "framer-motion";
 import { Session } from "next-auth/types";
 import Image from "next/image";

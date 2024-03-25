@@ -5,7 +5,7 @@ export default async function DashboardPage(): Promise<JSX.Element> {
 
   return (
     <main>
-      <h1 className="">I am Muse&apos;s Dashboard.</h1>
+      <h1 className="">I am BuildIt&apos;s Dashboard.</h1>
       <p>{JSON.stringify(session)}</p>
       <form
         action={async () => {

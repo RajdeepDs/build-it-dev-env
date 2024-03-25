@@ -1,5 +1,5 @@
 {
-  "extends": "@muse/typescript-config/react-library.json",
+  "extends": "@buildit/typescript-config/react-library.json",
   "include": ["."],
   "exclude": ["dist", "build", "node_modules"]
 }

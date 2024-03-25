@@ -1,5 +1,5 @@
 {
-  "extends": "@muse/typescript-config/nextjs.json",
+  "extends": "@buildit/typescript-config/nextjs.json",
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],

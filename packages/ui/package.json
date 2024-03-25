@@ -1,5 +1,5 @@
 {
-  "name": "@muse/ui",
+  "name": "@buildit/ui",
   "version": "0.0.0",
   "sideEffects": [
     "**/*.css"
@@ -22,8 +22,8 @@
     "react": "^18.2.0"
   },
   "devDependencies": {
-    "@muse/tailwind-config": "workspace:*",
-    "@muse/typescript-config": "workspace:*",
+    "@buildit/tailwind-config": "workspace:*",
+    "@buildit/typescript-config": "workspace:*",
     "@types/react": "^18.2.38",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.31",

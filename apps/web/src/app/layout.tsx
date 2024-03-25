@@ -1,9 +1,9 @@
-import "@muse/ui/styles.css";
+import "@buildit/ui/styles.css";
 import { GeistMono } from "geist/font/mono";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { Toaster } from "@muse/ui";
+import { Toaster } from "@buildit/ui";
 
 const HelveticaNowText = localFont({
   src: [
@@ -33,7 +33,7 @@ const HelveticaNowText = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Muse",
+  title: "BuildIt",
   description: "A development environment for Next.js",
 };
 

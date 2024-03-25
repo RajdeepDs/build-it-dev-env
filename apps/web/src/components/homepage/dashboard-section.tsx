@@ -1,8 +1,8 @@
 "use client";
 
 import FeatureCard from "@/components/ui/feature-card";
-import { Separator } from "@muse/ui";
-import { Icons } from "@muse/ui/icons";
+import { Separator } from "@buildit/ui";
+import { Icons } from "@buildit/ui/icons";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -20,22 +20,22 @@ export default function DashboardSection(): JSX.Element {
         >
           <Link href={"/docs"} className="flex items-center gap-x-2">
             <Image
-              src={"/logo-indigo.svg"}
-              alt={"Muse Logo"}
+              src={"/IndigoLogo.svg"}
+              alt={"BuildIt Logo"}
               width={12}
               height={12}
             />
             <h2 className="text-indigo-light text-sm">Dashboard</h2>
             <Separator orientation="vertical" className="h-[10px]" />
-            <h2 className="text-indigo-light text-sm">Muse</h2>
+            <h2 className="text-indigo-light text-sm">BuildIt</h2>
           </Link>
           <h1 className="mt-4 text-2xl font-bold sm:text-4xl md:whitespace-nowrap">
             Organize & Conquer.
             <div className="pb-1">Centralized Workspace Management.</div>
           </h1>
           <p className="text-grey-muted mt-2 text-base">
-            Muse empowers you to create, manage, and switch between your Next.js
-            projects seamlessly within a single, intuitive dashboard.
+            BuildIt empowers you to create, manage, and switch between your
+            Next.js projects seamlessly within a single, intuitive dashboard.
           </p>
           <Link
             href={"/docs"}
@@ -48,7 +48,7 @@ export default function DashboardSection(): JSX.Element {
             <FeatureCard
               icon={"FolderGit2"}
               title="Effortless Project Sync"
-              description="No need to switch between platforms! Connect your GitHub account and browse your existing repositories directly within the Muse dashboard."
+              description="No need to switch between platforms! Connect your GitHub account and browse your existing repositories directly within the BuildIt dashboard."
             />
             <div className="mt-4 md:hidden" />
             <FeatureCard

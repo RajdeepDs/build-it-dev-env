@@ -1,7 +1,7 @@
 "use client";
 
-import { Button, Separator } from "@muse/ui";
-import { Icons } from "@muse/ui/icons";
+import { Button, Separator } from "@buildit/ui";
+import { Icons } from "@buildit/ui/icons";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -29,7 +29,7 @@ export default function HeroSection(): JSX.Element {
             delay: 0.1,
           }}
         >
-          Effortless Full-Stack <br /> Development with Muse
+          Effortless Full-Stack <br /> Development with BuildIt
         </motion.h1>
         <motion.div
           className="text-grey/60 mb-9 text-center text-lg font-light md:text-xl"

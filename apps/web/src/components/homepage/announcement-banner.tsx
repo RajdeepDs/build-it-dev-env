@@ -1,10 +1,10 @@
-import { Separator } from "@muse/ui";
-import { Icons } from "@muse/ui/icons";
+import { Separator } from "@buildit/ui";
+import { Icons } from "@buildit/ui/icons";
 import Link from "next/link";
 
 export default function AnnouncementBanner(): JSX.Element {
   const announcement: string =
-    "Introducing Muse, an open source development environment.";
+    "Introducing BuildIt, an open source development environment.";
 
   return (
     <div className="container">
