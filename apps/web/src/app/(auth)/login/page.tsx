@@ -6,7 +6,7 @@ import { Suspense } from "react";
 
 export default function LoginPage(): JSX.Element {
   return (
-    <div className="mx-auto flex h-screen w-full flex-col justify-center gap-y-4 md:max-w-[450px]">
+    <div className="mx-auto flex h-dvh w-full flex-col justify-center gap-y-4 md:max-w-[450px]">
       <div className="flex flex-col gap-y-6 text-start">
         <Link href="/homepage">
           <Image src="/WhiteLogo.svg" width={35} height={35} alt="Logo" />
