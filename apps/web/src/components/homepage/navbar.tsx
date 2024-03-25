@@ -63,7 +63,9 @@ export default async function NavBar(): Promise<JSX.Element> {
                 </Button>
               </Link>
               <Link href="/register">
-                <Button size="sm">Sign Up</Button>
+                <Button size="sm" variant="form">
+                  Sign Up
+                </Button>
               </Link>
             </>
           ) : (
