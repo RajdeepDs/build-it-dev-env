@@ -29,7 +29,7 @@ export default function OpenSourceSection(): JSX.Element {
         </p>
       </motion.div>
       <Link
-        href="https://www.github.com"
+        href="https://www.github.com/RajdeepDs/BuildIt"
         className="relative h-[311px] w-[247px] text-white shadow-xl"
       >
         <div className="absolute inset-0">

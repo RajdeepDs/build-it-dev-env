@@ -41,7 +41,7 @@ export default function MobileNavMenu({
         {isOpen ? (
           <motion.div
             key="mobile-nav-menu"
-            className="bg-faded absolute left-0 top-0 -z-10 h-screen w-full"
+            className="bg-faded absolute left-0 top-0 -z-10 h-dvh w-full"
             initial={{ x: -300, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{
