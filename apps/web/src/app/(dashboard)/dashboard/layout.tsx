@@ -7,11 +7,11 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }): JSX.Element {
   return (
-    <div className="flex h-dvh">
-      <aside className="bg-banner w-[288px]">
+    <div className="bg-deep flex h-dvh">
+      <aside className="w-[288px]">
         <SidebarNav />
       </aside>
-      <main>{children}</main>
+      <main className="bg-deepFaded w-full">{children}</main>
     </div>
   );
 }

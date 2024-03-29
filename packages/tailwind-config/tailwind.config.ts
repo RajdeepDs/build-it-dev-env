@@ -24,6 +24,7 @@ const config = {
         banner: "#171D35",
         soft: "#EEEFF1",
         white: "#FFFFFF",
+        deepFaded: "#11131F",
         grey: {
           DEFAULT: "#9198AD",
           muted: "#707892",

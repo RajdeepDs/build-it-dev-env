@@ -15,7 +15,7 @@ const buttonVariants = cva(
         ghost: "hover:text-white text-indigo-soft",
         light: "bg-indigo-accent text-white hover:bg-indigo",
         link: "text-slate-900 underline-offset-4 hover:underline",
-        icon: "hover:bg-faded/50",
+        icon: "hover:bg-deepFaded",
       },
       size: {
         default: "h-10 px-4 py-2 rounded-lg",

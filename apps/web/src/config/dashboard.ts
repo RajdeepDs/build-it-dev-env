@@ -7,6 +7,7 @@ export const SidebarConfig: DashboardConfig = {
       title: "Inbox",
       icon: "Inbox",
       href: "/dashboard/inbox",
+      count: 4,
     },
     {
       id: 2,

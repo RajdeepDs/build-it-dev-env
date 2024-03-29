@@ -5,6 +5,7 @@ export type SidebarNavItem = {
   title: string;
   disabled?: boolean;
   external?: boolean;
+  count?: number;
   icon?: keyof typeof Icons;
 } & (
   | {

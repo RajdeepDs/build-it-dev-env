@@ -22,13 +22,20 @@ export default function SidebarItems({
             <Link href={item.disabled ? "/dashboard" : item.href} key={item.id}>
               <span
                 className={cn(
-                  "flex items-center rounded px-2 py-1 transition-colors duration-300 ease-in-out",
-                  path === item.href ? "bg-faded/50" : "hover:bg-faded/50",
+                  "flex items-center justify-between rounded px-[5px] py-[5px] transition-colors duration-300 ease-in-out",
+                  path === item.href ? "bg-deepFaded" : "hover:bg-deepFaded",
                   item.disabled && "cursor-not-allowed opacity-80",
                 )}
               >
-                <Icon className="mr-3 h-4 w-4" />
-                <span className="text-sm">{item.title}</span>
+                <div className="flex items-center">
+                  <Icon className="text-grey-deep mr-[14px] h-[18px] w-[18px]" />
+                  <span>{item.title}</span>
+                </div>
+                {item.count && (
+                  <div className="bg-indigo-accent mr-[5px] flex h-4 w-4 items-center justify-around rounded-sm text-center">
+                    {item.count}
+                  </div>
+                )}
               </span>
             </Link>
           )
