@@ -8,6 +8,7 @@ export const publicRoutes = [
   "/homepage",
   "/auth/new-verification",
   "/dashboard",
+  "/dashboard/inbox",
 ];
 
 /**

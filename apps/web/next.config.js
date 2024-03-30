@@ -7,6 +7,10 @@ module.exports = {
         source: "/",
         destination: "/homepage",
       },
+      {
+        source: "/dashboard",
+        destination: "/dashboard/inbox",
+      },
     ];
   },
 };

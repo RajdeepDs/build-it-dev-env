@@ -16,6 +16,7 @@ import {
   Home,
   Inbox,
   LayoutGrid,
+  ListFilter,
   ListTodo,
   Loader2,
   LucideProps,
@@ -58,6 +59,7 @@ export const Icons = {
   UserPlus2,
   UsersRound,
   HelpCircle,
+  ListFilter,
   Github: ({ ...props }: LucideProps) => (
     <svg
       aria-hidden="true"

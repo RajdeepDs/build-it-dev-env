@@ -8,10 +8,10 @@ export default function DashboardLayout({
 }): JSX.Element {
   return (
     <div className="bg-deep flex h-dvh">
-      <aside className="w-[288px]">
+      <aside className="border-grey-deep w-[288px] border-r">
         <SidebarNav />
       </aside>
-      <main className="bg-deepFaded w-full">{children}</main>
+      <main className="bg-deepFaded h-dvh w-full">{children}</main>
     </div>
   );
 }

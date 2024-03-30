@@ -32,7 +32,7 @@ export default function SidebarItems({
                   <span>{item.title}</span>
                 </div>
                 {item.count && (
-                  <div className="bg-indigo-accent mr-[5px] flex h-4 w-4 items-center justify-around rounded-sm text-center">
+                  <div className="bg-indigo-accent mr-[5px] flex h-4 w-4 items-center justify-around rounded-sm text-center text-sm">
                     {item.count}
                   </div>
                 )}
