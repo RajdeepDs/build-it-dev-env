@@ -20,4 +20,6 @@ export type SidebarNavItem = {
 
 export interface DashboardConfig {
   sidebarNav: SidebarNavItem[];
+  settingsWorkspaceSidebarNav: SidebarNavItem[];
+  settingsProfileSidebarNav: SidebarNavItem[];
 }

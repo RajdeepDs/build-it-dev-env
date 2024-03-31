@@ -35,14 +35,14 @@ export default function SidebarNav(): JSX.Element {
       <h3 className="text-grey-deep mt-5 text-sm">Your team</h3>
       <div className="mt-3">
         <div className="hover:bg-deepFaded flex cursor-pointer items-center rounded px-[5px] py-[5px] transition-colors duration-300 ease-in-out">
-          <Icons.UserPlus2 className="text-grey mr-[14px] h-[18px] w-[18px]" />
-          <h1 className="">Add member</h1>
+          <Icons.UserPlus2 className="text-grey-deep mr-[14px] h-[18px] w-[18px]" />
+          <h1 className="text-sm">Add member</h1>
         </div>
       </div>
       <div className="flex items-center justify-between rounded px-[5px] py-[5px] transition-colors duration-300 ease-in-out">
         <div className="flex items-center">
-          <Icons.UsersRound className="text-grey mr-[14px] h-[18px] w-[18px]" />
-          <h1 className="">Members</h1>
+          <Icons.UsersRound className="text-grey-deep mr-[14px] h-[18px] w-[18px]" />
+          <h1 className="text-sm">Members</h1>
         </div>
         <div className=" text-grey-deep mr-[5px] flex h-4 w-4 items-center justify-around rounded-sm text-center text-sm">
           3

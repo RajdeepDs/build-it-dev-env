@@ -4,6 +4,7 @@ import {
   ArrowUpRight,
   Bell,
   Bot,
+  Building2,
   ChevronDown,
   ChevronLeft,
   ChevronRight,
@@ -24,6 +25,7 @@ import {
   Search,
   Sparkles,
   Twitter,
+  UserCircle2,
   UserPlus2,
   UsersRound,
   Zap,
@@ -60,6 +62,8 @@ export const Icons = {
   UsersRound,
   HelpCircle,
   ListFilter,
+  Building2,
+  UserCircle2,
   Github: ({ ...props }: LucideProps) => (
     <svg
       aria-hidden="true"

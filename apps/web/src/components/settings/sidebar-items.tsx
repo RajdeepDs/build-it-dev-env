@@ -1,7 +1,6 @@
 "use client";
 
 import { SidebarNavItem } from "@/types";
-import { Icons } from "@buildit/ui/icons";
 import { cn } from "@buildit/ui/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -14,9 +13,8 @@ export default function SidebarItems({
 }: SidebarItemsProps): JSX.Element {
   const path = usePathname();
   return (
-    <div className="mt-5">
+    <div className="ml-7 mt-[10px]">
       {items.map((item) => {
-        const Icon = Icons[(item.icon as keyof typeof Icons) || "ChevronRight"];
         return (
           item.href && (
             <Link href={item.disabled ? "/dashboard" : item.href} key={item.id}>
@@ -27,10 +25,7 @@ export default function SidebarItems({
                   item.disabled && "cursor-not-allowed opacity-80",
                 )}
               >
-                <div className="flex items-center">
-                  <Icon className="text-grey-deep mr-[14px] h-[18px] w-[18px]" />
-                  <span className="text-sm">{item.title}</span>
-                </div>
+                <span className="text-sm">{item.title}</span>
                 {item.count && (
                   <div className="bg-indigo-accent mr-[5px] flex h-4 w-4 items-center justify-around rounded-sm text-center text-sm">
                     {item.count}
