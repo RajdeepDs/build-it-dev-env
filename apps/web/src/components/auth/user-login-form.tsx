@@ -158,7 +158,7 @@ export default function UserLoginForm(): JSX.Element {
             <Button
               type="submit"
               className="text-md w-full items-center rounded-md"
-              variant="light"
+              variant="form"
               disabled={isLoading}
             >
               {isLoading && (

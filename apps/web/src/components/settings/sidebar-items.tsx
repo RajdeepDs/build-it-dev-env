@@ -20,7 +20,7 @@ export default function SidebarItems({
             <Link href={item.disabled ? "/dashboard" : item.href} key={item.id}>
               <span
                 className={cn(
-                  "flex items-center justify-between rounded px-[5px] py-[5px] transition-colors duration-300 ease-in-out",
+                  "my-[1px] flex items-center justify-between rounded px-[5px] py-[5px] transition-colors duration-300 ease-in-out",
                   path === item.href ? "bg-deepFaded" : "hover:bg-deepFaded",
                   item.disabled && "cursor-not-allowed opacity-80",
                 )}
