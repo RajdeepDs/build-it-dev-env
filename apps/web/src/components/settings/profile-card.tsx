@@ -1,5 +1,7 @@
 "use client";
 
+import { ExtendedUser } from "@/../next-auth";
+import { updateProfile } from "@/actions/update-profile";
 import {
   Form,
   FormControl,
@@ -11,9 +13,11 @@ import {
   Separator,
 } from "@buildit/ui";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
+import { startTransition } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { z } from "zod";
-import { ExtendedUser } from "../../../next-auth";
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -26,22 +30,33 @@ interface ProfileCardProp {
 }
 
 export default function ProfileCard({ user }: ProfileCardProp): JSX.Element {
+  const route = useRouter();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       email: user.email || "",
       fullName: user.name || "",
-      userName: user.name || "",
+      userName: user.username || "",
     },
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    if (
-      user.email !== values.email ||
-      user.name !== values.fullName ||
-      user.name !== values.userName
-    ) {
-      console.log(values);
+    if (user.name !== values.fullName || user.username !== values.userName) {
+      startTransition(() => {
+        updateProfile(user.id, values.fullName, values.userName).then(
+          (data) => {
+            if (data?.error) {
+              form.reset();
+              toast.error(data.error);
+            }
+            if (data?.success) {
+              toast.success(data.success);
+              route.refresh();
+            }
+          },
+        );
+      });
     }
   }
 
