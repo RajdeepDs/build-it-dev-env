@@ -1,5 +1,11 @@
 import SidebarNav from "@/components/settings/sidebar-navigations";
+import { Metadata } from "next";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "Settings",
+  description: "BuildIt settings page",
+};
 
 export default function SettingsLayout({
   children,
