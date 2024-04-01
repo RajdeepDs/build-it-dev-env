@@ -9,4 +9,13 @@ module.exports = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: "/dashboard",
+        destination: "/dashboard/inbox",
+        permanent: false,
+      },
+    ];
+  },
 };

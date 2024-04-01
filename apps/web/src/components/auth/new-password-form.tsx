@@ -75,7 +75,7 @@ export default function NewPasswordForm(): JSX.Element {
             <Button
               type="submit"
               className="text-md w-full rounded-md"
-              variant="light"
+              variant="form"
               disabled={isLoading}
             >
               {isLoading && (
