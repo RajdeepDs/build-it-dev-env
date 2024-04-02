@@ -67,6 +67,7 @@ export const {
         session.user.name = token.name as string;
         session.user.email = token.email as string;
         session.user.username = token.username as string;
+        session.user.onboarding = !!token.onboarding;
       }
 
       if (token.role && session.user) {
@@ -86,6 +87,7 @@ export const {
       token.email = existingUser.email;
       token.username = existingUser.username;
       token.role = existingUser.role;
+      token.onboarding = !!existingUser.onboarding;
 
       return token;
     },
