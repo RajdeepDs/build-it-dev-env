@@ -5,7 +5,6 @@ import {
   DEFAULT_LOGIN_REDIRECT,
   publicRoutes,
 } from "@/routes";
-import { boolean } from "zod";
 
 export default auth(async (req): Promise<any> => {
   const { nextUrl } = req;
