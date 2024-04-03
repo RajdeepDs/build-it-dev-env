@@ -92,7 +92,7 @@ export default function UsernameForm({ user }: UserNameFormProps): JSX.Element {
           <Button
             type="submit"
             className="text-md w-full rounded-md"
-            variant="form"
+            variant="default"
           >
             Continue
           </Button>

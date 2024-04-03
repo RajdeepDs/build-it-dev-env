@@ -73,7 +73,7 @@ export default function WorkspaceNameForm({
           <Button
             type="submit"
             className="text-md w-full rounded-md"
-            variant="form"
+            variant="default"
           >
             Create workspace
           </Button>
