@@ -39,6 +39,7 @@ model User {
   emailVerified         DateTime?
   image                 String?
   password              String?
+  onboarding            Boolean                @default(false)
   role                  UserRole               @default(USER)
   accounts              Account[]
   isTwoFactorEnabled    Boolean                @default(false)

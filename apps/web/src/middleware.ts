@@ -1,15 +1,12 @@
-import authConfig from "@/auth.config";
+import { auth } from "@/auth";
 import {
   apiAuthPrefix,
   authRoutes,
   DEFAULT_LOGIN_REDIRECT,
   publicRoutes,
 } from "@/routes";
-import NextAuth from "next-auth";
 
-const { auth } = NextAuth(authConfig);
-
-export default auth((req): any => {
+export default auth(async (req): Promise<any> => {
   const { nextUrl } = req;
   const isLoggedIn = Boolean(req.auth);
 
@@ -17,15 +14,26 @@ export default auth((req): any => {
   const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
   const isAuthRoute = authRoutes.includes(nextUrl.pathname);
 
+  const session = req.auth?.user;
+  var isOnboarded = false;
+  if (session) {
+    isOnboarded = session?.onboarding;
+  }
+
   if (isApiAuthRoute) {
     return null;
   }
+
   if (isAuthRoute) {
     if (isLoggedIn) {
-      return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl));
+      if (isOnboarded) {
+        return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl));
+      }
+      return Response.redirect(new URL("/welcome", nextUrl));
     }
     return null;
   }
+
   if (!isLoggedIn && !isPublicRoute) {
     let callbackUrl = nextUrl.pathname;
     if (nextUrl.search) {

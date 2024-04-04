@@ -155,20 +155,18 @@ export default function UserLoginForm(): JSX.Element {
                 />
               </>
             )}
-            <Button
-              type="submit"
-              className="text-md w-full items-center rounded-md"
-              variant="form"
-              disabled={isLoading}
-            >
-              {isLoading && (
-                <Icons.Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              )}
-              Continue
-              <Icons.ChevronRight className="ml-1 h-4 w-4" />
-            </Button>
           </form>
         </Form>
+        <Button
+          className="text-md mt-4 w-full items-center rounded-md"
+          variant="form"
+          onClick={form.handleSubmit(onSubmit)}
+          disabled={isLoading}
+        >
+          {isLoading && <Icons.Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+          Continue
+          <Icons.ChevronRight className="ml-1 h-4 w-4" />
+        </Button>
       </div>
     </div>
   );
