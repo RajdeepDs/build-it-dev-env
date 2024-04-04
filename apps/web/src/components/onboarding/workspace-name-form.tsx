@@ -70,15 +70,16 @@ export default function WorkspaceNameForm({
               </FormItem>
             )}
           />
-          <Button
-            type="submit"
-            className="text-md w-full rounded-md"
-            variant="default"
-          >
-            Create workspace
-          </Button>
         </form>
       </Form>
+      <Button
+        type="submit"
+        className="text-md mt-4 w-full rounded-md"
+        variant="default"
+        onClick={form.handleSubmit(onSubmit)}
+      >
+        Create workspace
+      </Button>
     </div>
   );
 }

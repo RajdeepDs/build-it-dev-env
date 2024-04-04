@@ -103,19 +103,18 @@ export default function UserAuthForm(): JSX.Element {
                 </FormItem>
               )}
             />
-            <Button
-              type="submit"
-              className="text-md w-full rounded-md"
-              variant="default"
-              disabled={isLoading}
-            >
-              {isLoading && (
-                <Icons.Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              )}
-              Create account
-            </Button>
           </form>
         </Form>
+        <Button
+          type="submit"
+          className="text-md mt-4 w-full rounded-md"
+          variant="form"
+          onClick={form.handleSubmit(onSubmit)}
+          disabled={isLoading}
+        >
+          {isLoading && <Icons.Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+          Create account
+        </Button>
       </div>
     </div>
   );
