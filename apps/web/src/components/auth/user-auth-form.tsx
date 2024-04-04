@@ -106,7 +106,6 @@ export default function UserAuthForm(): JSX.Element {
           </form>
         </Form>
         <Button
-          type="submit"
           className="text-md mt-4 w-full rounded-md"
           variant="form"
           onClick={form.handleSubmit(onSubmit)}

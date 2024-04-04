@@ -74,9 +74,8 @@ export default function WorkspaceForm(): JSX.Element {
         </form>
       </Form>
       <Button
-        type="submit"
         className="mt-5 w-fit"
-        variant="default"
+        variant="form"
         onClick={form.handleSubmit(onSubmit)}
       >
         Submit{" "}

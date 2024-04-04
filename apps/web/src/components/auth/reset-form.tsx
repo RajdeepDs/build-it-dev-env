@@ -71,9 +71,8 @@ export default function ResetForm(): JSX.Element {
           </form>
         </Form>
         <Button
-          type="submit"
           className="text-md mt-4 w-full rounded-md"
-          variant="default"
+          variant="form"
           onClick={form.handleSubmit(onSubmit)}
           disabled={isLoading}
         >

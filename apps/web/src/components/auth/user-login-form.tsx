@@ -158,7 +158,6 @@ export default function UserLoginForm(): JSX.Element {
           </form>
         </Form>
         <Button
-          type="submit"
           className="text-md mt-4 w-full items-center rounded-md"
           variant="form"
           onClick={form.handleSubmit(onSubmit)}
