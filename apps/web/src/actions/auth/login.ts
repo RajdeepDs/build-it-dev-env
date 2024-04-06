@@ -1,16 +1,15 @@
 "use server";
 
 import { signIn } from "@/auth";
-import { getTwoFactorConfirmationByUserId } from "@/data/two-factor-confirmation";
-import { getTwoFactorTokenByEmail } from "@/data/two-factor-token";
-import { getUserByEmail } from "@/data/user";
+import { getTwoFactorConfirmationByUserId } from "@/data/auth/two-factor-confirmation";
+import { getTwoFactorTokenByEmail } from "@/data/auth/two-factor-token";
+import { getUserByEmail } from "@/data/auth/user";
 import { sendTwoFactorEmail, sendVerificationEmail } from "@/lib/mail";
 import prisma from "@/lib/prisma";
 import {
   generateTwoFactorToken,
   generateVerificationToken,
 } from "@/lib/tokens";
-import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
 import { LoginFormSchema } from "@/schemas";
 import bcrypt from "bcryptjs";
 import { AuthError } from "next-auth";

@@ -1,5 +1,6 @@
 "use client";
 
+import updateWorkspace from "@/actions/workspace/update-workspace";
 import {
   Button,
   Form,
@@ -12,24 +13,47 @@ import {
 } from "@buildit/ui";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { z } from "zod";
 
 const formSchema = z.object({
-  workspaceName: z.string().min(1, "Workspace name cannot be empty."),
-  workspaceURL: z.string().min(7, "Workspace URL must be a valid URL."),
+  workspaceName: z.string().min(3, "Workspace name cannot be empty."),
+  workspaceURL: z.string().min(3, "Workspace URL must be a valid URL."),
 });
 
-export default function WorkspaceForm(): JSX.Element {
+interface WorkspaceFormProps {
+  workspace: {
+    name: string;
+    url: string;
+  };
+  userId: string;
+}
+
+export default function WorkspaceForm({
+  workspace,
+  userId,
+}: WorkspaceFormProps): JSX.Element {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      workspaceName: "",
-      workspaceURL: "",
+      workspaceName: workspace.name || "",
+      workspaceURL: workspace.url || "",
     },
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+    updateWorkspace({
+      userId,
+      workspaceName: values.workspaceName,
+      workspaceURL: values.workspaceURL,
+    }).then((data) => {
+      if (data?.error) {
+        toast.error(data.error);
+      }
+      if (data?.success) {
+        toast.success(data.success);
+      }
+    });
   }
   return (
     <div className="flex flex-col">
@@ -63,6 +87,7 @@ export default function WorkspaceForm(): JSX.Element {
                       <input
                         className="w-full bg-transparent focus-visible:outline-none"
                         type="text"
+                        {...field}
                       />
                     </div>
                   </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { updateUsername } from "@/actions/update-username";
+import { updateUsername } from "@/actions/user/update-username";
 import {
   Button,
   Form,

@@ -1,6 +1,7 @@
 "use client";
 
-import updateOnboarding from "@/actions/update-onboarding";
+import updateOnboarding from "@/actions/onboarding/update-onboarding";
+import createWorkspace from "@/actions/workspace/create-workspace";
 import {
   Button,
   Form,
@@ -15,6 +16,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { startTransition } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import { z } from "zod";
 
 interface WorkspaceNameFormProps {
@@ -38,13 +40,23 @@ export default function WorkspaceNameForm({
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     startTransition(() => {
-      updateOnboarding({ id }).then((data) => {
+      createWorkspace({
+        id,
+        workspaceName: values.workspacename,
+      }).then((data) => {
         if (data?.error) {
-          console.error(data.error);
+          toast.error(data.error);
         }
         if (data?.success) {
-          console.log(data.success);
-          route.push("/dashboard");
+          toast.success(data.success);
+          updateOnboarding({ id }).then((data) => {
+            if (data?.error) {
+              toast.error(data.error);
+            }
+            if (data?.success) {
+              route.push("/dashboard");
+            }
+          });
         }
       });
     });

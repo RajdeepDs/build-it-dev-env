@@ -1,7 +1,7 @@
 "use client";
 
 import { ExtendedUser } from "@/../next-auth";
-import { updateProfile } from "@/actions/update-profile";
+import { updateProfile } from "@/actions/user/update-profile";
 import {
   Form,
   FormControl,

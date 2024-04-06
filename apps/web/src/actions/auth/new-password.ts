@@ -1,7 +1,7 @@
 "use server";
 
-import { getPasswordResetTokenbyToken } from "@/data/password-reset-token";
-import { getUserByEmail } from "@/data/user";
+import { getPasswordResetTokenbyToken } from "@/data/auth/password-reset-token";
+import { getUserByEmail } from "@/data/auth/user";
 import prisma from "@/lib/prisma";
 import { NewPasswordFormSchema } from "@/schemas";
 import bcrypt from "bcryptjs";
