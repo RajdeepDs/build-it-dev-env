@@ -1,7 +1,7 @@
 import crypto from "crypto";
-import { getPasswordResetTokenByEmail } from "@/data/password-reset-token";
-import { getTwoFactorTokenByEmail } from "@/data/two-factor-token";
-import { getVerificationTokenByEmail } from "@/data/verification-token";
+import { getPasswordResetTokenByEmail } from "@/data/auth/password-reset-token";
+import { getTwoFactorTokenByEmail } from "@/data/auth/two-factor-token";
+import { getVerificationTokenByEmail } from "@/data/auth/verification-token";
 import { v4 as uuidv4 } from "uuid";
 import prisma from "./prisma";
 

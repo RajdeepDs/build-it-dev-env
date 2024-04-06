@@ -1,6 +1,6 @@
 "use server";
 
-import { getUserById } from "@/data/user";
+import { getUserById } from "@/data/auth/user";
 import prisma from "@/lib/prisma";
 import * as z from "zod";
 
