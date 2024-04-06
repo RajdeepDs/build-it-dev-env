@@ -1,6 +1,6 @@
 "use client";
 
-import { newPassword } from "@/actions/new-password";
+import { newPassword } from "@/actions/auth/new-password";
 import { NewPasswordFormSchema } from "@/schemas";
 import {
   Button,

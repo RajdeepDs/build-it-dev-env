@@ -1,6 +1,6 @@
 "use client";
 
-import { reset } from "@/actions/reset";
+import { reset } from "@/actions/auth/reset";
 import { ResetFormSchema } from "@/schemas";
 import {
   Button,

@@ -10,7 +10,6 @@ import {
   generateTwoFactorToken,
   generateVerificationToken,
 } from "@/lib/tokens";
-import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
 import { LoginFormSchema } from "@/schemas";
 import bcrypt from "bcryptjs";
 import { AuthError } from "next-auth";
