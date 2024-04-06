@@ -3,17 +3,24 @@ import { SidebarConfig } from "@/config/dashboard";
 import { Button } from "@buildit/ui";
 import { Icons } from "@buildit/ui/icons";
 
-export default function SidebarNav(): JSX.Element {
-  const items = SidebarConfig.sidebarNav;
+interface SidebarNavProp {
+  workspace: {
+    name: string;
+  };
+}
 
+export default function SidebarNav({ workspace }: SidebarNavProp): JSX.Element {
+  const items = SidebarConfig.sidebarNav;
+  const workspacename = workspace.name;
+  const workspacenameInitial = workspacename.charAt(0).toUpperCase();
   return (
     <div className="p-3">
       <div className="flex items-center justify-between">
         <div className="hover:bg-deepFaded flex cursor-pointer items-center gap-x-2 rounded p-1">
           <div className="bg-indigo-light h-6 w-6 rounded-sm text-center">
-            B
+            {workspacenameInitial}
           </div>
-          <h1>BuildIt</h1>
+          <h1>{workspacename}</h1>
           <Icons.ChevronDown className="text-grey h-4 w-4" />
         </div>
         <Button size="icon" variant="icon">

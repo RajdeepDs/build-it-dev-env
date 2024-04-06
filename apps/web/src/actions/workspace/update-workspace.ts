@@ -10,11 +10,9 @@ const UpdateWorkspaceSchema = z.object({
 });
 
 export default async function updateWorkspace({
-  userId,
   workspaceName,
   workspaceURL,
 }: {
-  userId: string;
   workspaceName: string;
   workspaceURL: string;
 }) {
@@ -27,7 +25,7 @@ export default async function updateWorkspace({
     return { error: "Invalid fields!" };
   }
 
-  const existingWorkspace = await getWorkspace(userId);
+  const existingWorkspace = await getWorkspace();
   if (!existingWorkspace) {
     return { error: "Workspace not found!" };
   }

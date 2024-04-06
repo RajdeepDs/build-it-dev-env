@@ -12,6 +12,7 @@ import {
   Input,
 } from "@buildit/ui";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
@@ -26,13 +27,12 @@ interface WorkspaceFormProps {
     name: string;
     url: string;
   };
-  userId: string;
 }
 
 export default function WorkspaceForm({
   workspace,
-  userId,
 }: WorkspaceFormProps): JSX.Element {
+  const route = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -43,7 +43,6 @@ export default function WorkspaceForm({
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     updateWorkspace({
-      userId,
       workspaceName: values.workspaceName,
       workspaceURL: values.workspaceURL,
     }).then((data) => {
@@ -52,6 +51,7 @@ export default function WorkspaceForm({
       }
       if (data?.success) {
         toast.success(data.success);
+        route.refresh();
       }
     });
   }

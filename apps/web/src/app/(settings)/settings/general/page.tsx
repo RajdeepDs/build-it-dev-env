@@ -1,14 +1,11 @@
 import HeaderTitle from "@/components/settings/header-title";
 import WorkspaceForm from "@/components/settings/workspace-form";
 import { getWorkspace } from "@/data/workspace/get-workspace";
-import { getCurrentUser } from "@/lib/auth";
 import { Button, Separator } from "@buildit/ui";
 import * as React from "react";
 
 export default async function GeneralPage(): Promise<JSX.Element> {
-  const user = await getCurrentUser();
-  if (!user) return <></>;
-  const workspace = await getWorkspace(user?.id);
+  const workspace = await getWorkspace();
   if (!workspace) return <></>;
   return (
     <div className="mx-auto h-full w-2/5  py-14">
@@ -18,7 +15,7 @@ export default async function GeneralPage(): Promise<JSX.Element> {
       />
       <Separator className="bg-grey-deep/50 my-5" />
       {/* TODO: Add Logo */}
-      <WorkspaceForm workspace={workspace} userId={user.id} />
+      <WorkspaceForm workspace={workspace} />
       <Separator className="bg-grey-deep/50 my-5" />
       <div className="flex flex-col items-start">
         <h2 className="">Delete workspace</h2>
