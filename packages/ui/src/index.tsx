@@ -6,3 +6,4 @@ export * from "./components/ui/navigation-menu";
 export * from "./components/ui/input-otp";
 export * from "./components/ui/sonner";
 export * from "./components/ui/separator";
+export * from "./components/ui/dropdown-menu";
