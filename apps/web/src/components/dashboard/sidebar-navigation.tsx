@@ -2,6 +2,7 @@ import SidebarItems from "@/components/dashboard/sidebar-items";
 import { SidebarConfig } from "@/config/dashboard";
 import { Button } from "@buildit/ui";
 import { Icons } from "@buildit/ui/icons";
+import WorkspaceMenu from "./workspace-menu";
 
 interface SidebarNavProp {
   workspace: {
@@ -16,13 +17,10 @@ export default function SidebarNav({ workspace }: SidebarNavProp): JSX.Element {
   return (
     <div className="p-3">
       <div className="flex items-center justify-between">
-        <div className="hover:bg-deepFaded flex cursor-pointer items-center gap-x-2 rounded p-1">
-          <div className="bg-indigo-light h-6 w-6 rounded-sm text-center">
-            {workspacenameInitial}
-          </div>
-          <h1>{workspacename}</h1>
-          <Icons.ChevronDown className="text-grey h-4 w-4" />
-        </div>
+        <WorkspaceMenu
+          workspacename={workspacename}
+          workspacenameInitial={workspacenameInitial}
+        />
         <Button size="icon" variant="icon">
           <Icons.History className="text-grey h-5 w-5" />
         </Button>
