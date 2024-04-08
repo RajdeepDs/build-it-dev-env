@@ -21,6 +21,7 @@ import {
   ListTodo,
   Loader2,
   LucideProps,
+  MoreHorizontal,
   Radio,
   Search,
   Sparkles,
@@ -64,6 +65,7 @@ export const Icons = {
   ListFilter,
   Building2,
   UserCircle2,
+  MoreHorizontal,
   Github: ({ ...props }: LucideProps) => (
     <svg
       aria-hidden="true"
