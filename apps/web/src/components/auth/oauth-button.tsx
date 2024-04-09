@@ -1,6 +1,5 @@
 "use client";
 
-import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
 import { Button } from "@buildit/ui";
 import { Icons } from "@buildit/ui/icons";
 import { signIn } from "next-auth/react";
@@ -16,7 +15,7 @@ export function OauthButton({ type }: { type: string }): JSX.Element {
     } else {
       setIsGoogleLoading(true);
     }
-    signIn(provider, { callbackUrl: DEFAULT_LOGIN_REDIRECT });
+    signIn(provider);
   };
   return (
     <div className="flex  flex-row gap-4">
