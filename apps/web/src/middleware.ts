@@ -26,10 +26,10 @@ export default auth(async (req): Promise<any> => {
 
   if (isAuthRoute) {
     if (isLoggedIn) {
-      if (isOnboarded) {
-        return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl));
+      if (!isOnboarded) {
+        return Response.redirect(new URL("/welcome", nextUrl));
       }
-      return Response.redirect(new URL("/welcome", nextUrl));
+      return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl));
     }
     return null;
   }
