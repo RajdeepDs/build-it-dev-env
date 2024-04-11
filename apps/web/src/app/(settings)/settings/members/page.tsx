@@ -2,6 +2,7 @@ import HeaderTitle from "@/components/settings/header-title";
 import { getCurrentUser } from "@/lib/auth";
 import { Button, Input, Separator } from "@buildit/ui";
 import { Icons } from "@buildit/ui/icons";
+import Image from "next/image";
 import * as React from "react";
 
 export default async function MembersPage(): Promise<JSX.Element> {
@@ -32,9 +33,19 @@ export default async function MembersPage(): Promise<JSX.Element> {
       <p className="mt-5 text-sm">1 member</p>
       <div className="mt-5 flex items-center justify-between">
         <div className="flex items-center gap-x-4">
-          <div className="bg-grey flex h-8 w-8 items-center justify-center rounded-full">
-            {user?.name?.charAt(0).toUpperCase() ?? ""}
-          </div>
+          {user?.image ? (
+            <Image
+              src={user.image}
+              alt="profile image"
+              className="rounded-full"
+              width={32}
+              height={32}
+            />
+          ) : (
+            <div className="bg-grey-deep/30 mb-3 flex h-8 w-8 items-center justify-center rounded-full text-center">
+              <span className="text-2xl">{user?.name?.charAt(0)}</span>
+            </div>
+          )}
           <div className="flex flex-col items-start">
             <h1 className="text-sm">{user?.name}</h1>
             <p className="text-grey-muted text-sm">{user?.email}</p>

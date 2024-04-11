@@ -13,6 +13,7 @@ import {
   Separator,
 } from "@buildit/ui";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { startTransition } from "react";
 import { useForm } from "react-hook-form";
@@ -64,7 +65,19 @@ export default function ProfileCard({ user }: ProfileCardProp): JSX.Element {
     <div className="border-grey-deep mt-5 rounded-lg border">
       <div className="bg-grey-deep/10 flex w-full flex-col items-center rounded-t-md p-3">
         <h2 className="flex w-full items-start">Profile</h2>
-        <div className="bg-grey-deep/30 mb-3 flex h-28 w-28 rounded-full text-center" />
+        {user.image ? (
+          <Image
+            src={user.image}
+            alt="profile image"
+            className="rounded-full"
+            width={112}
+            height={112}
+          />
+        ) : (
+          <div className="bg-grey-deep/30 mb-3 flex h-28 w-28 items-center justify-center rounded-full text-center">
+            <span className="text-2xl">{user.name?.charAt(0)}</span>
+          </div>
+        )}
       </div>
       <Form {...form}>
         <form

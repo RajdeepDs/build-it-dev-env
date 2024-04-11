@@ -18,10 +18,10 @@ export const {
     error: "/auth/error",
   },
   events: {
-    async linkAccount({ user }) {
+    async linkAccount({ user, profile }) {
       await prisma.user.update({
         where: { id: user.id },
-        data: { emailVerified: new Date() },
+        data: { emailVerified: new Date(), image: profile.image as string },
       });
     },
   },
@@ -34,7 +34,7 @@ export const {
 
       const existingUser = await getUserById(user.id);
 
-      // Prevent sign in wihtout email verification
+      // Prevent sign in without email verification
       if (!existingUser?.emailVerified) {
         return false;
       }
