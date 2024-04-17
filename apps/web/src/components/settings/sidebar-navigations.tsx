@@ -10,7 +10,7 @@ export default function SidebarNav(): JSX.Element {
 
   return (
     <div className="p-3">
-      <Link href="/dashboard" className="flex items-center gap-x-2">
+      <Link href="/inbox" className="flex items-center gap-x-2">
         <Icons.ChevronLeft className="text-grey h-6 w-6" />
         <h2 className="">Settings</h2>
       </Link>
