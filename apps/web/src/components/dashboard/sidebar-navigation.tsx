@@ -2,11 +2,13 @@ import SidebarItems from "@/components/dashboard/sidebar-items";
 import { SidebarConfig } from "@/config/dashboard";
 import { Button } from "@buildit/ui";
 import { Icons } from "@buildit/ui/icons";
+import Link from "next/link";
 import WorkspaceMenu from "./workspace-menu";
 
 interface SidebarNavProp {
   workspace: {
     name: string;
+    url: string;
   };
 }
 
@@ -27,9 +29,11 @@ export default function SidebarNav({ workspace }: SidebarNavProp): JSX.Element {
       </div>
       <div className="mt-5 flex w-full items-center justify-between">
         <div className="flex w-full items-center gap-x-2">
-          <Button className="bg-deepFaded w-full gap-x-2">
-            <Icons.Edit className="text-grey h-4 w-4" />
-            <h1 className="">Editor</h1>
+          <Button className="bg-deepFaded w-full gap-x-2" asChild>
+            <Link href={`/${workspace.url}`}>
+              <Icons.Edit className="text-grey h-4 w-4" />
+              <h1 className="">Editor</h1>
+            </Link>
           </Button>
           <Button className="bg-deepFaded px-3 py-2">
             <Icons.Search className="text-grey h-4 w-4" />

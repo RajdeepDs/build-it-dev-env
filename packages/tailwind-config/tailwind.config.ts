@@ -37,6 +37,12 @@ const config = {
           medium: "#8BA5FF",
           accent: "#577EFF",
         },
+        editor: {
+          deep: "#11131F",
+          dark: "#182449",
+          medium: "#304384",
+          light: "#435DB1",
+        },
       },
       fontFamily: {
         sans: ["var(--font-helvetica-now-text)", "sans-serif"],
