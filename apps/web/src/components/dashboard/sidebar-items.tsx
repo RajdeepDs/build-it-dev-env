@@ -9,17 +9,18 @@ import { usePathname } from "next/navigation";
 interface SidebarItemsProps {
   items: SidebarNavItem[];
 }
-export default function SidebarItems({
+export default async function SidebarItems({
   items,
-}: SidebarItemsProps): JSX.Element {
+}: SidebarItemsProps): Promise<JSX.Element> {
   const path = usePathname();
+
   return (
     <div className="mt-5">
       {items.map((item) => {
         const Icon = Icons[(item.icon as keyof typeof Icons) || "ChevronRight"];
         return (
           item.href && (
-            <Link href={item.disabled ? "/dashboard" : item.href} key={item.id}>
+            <Link href={item.disabled ? `/inbox` : item.href} key={item.id}>
               <span
                 className={cn(
                   "flex items-center justify-between rounded px-[5px] py-[5px] transition-colors duration-300 ease-in-out",

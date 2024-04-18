@@ -54,7 +54,7 @@ export default function WorkspaceNameForm({
               toast.error(data.error);
             }
             if (data?.success) {
-              route.push("/dashboard");
+              route.push("/inbox");
             }
           });
         }
